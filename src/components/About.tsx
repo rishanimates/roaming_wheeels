@@ -23,7 +23,7 @@ function ProfileImage() {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="flex items-center gap-3">
                         <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-sm text-white font-medium">Currently on Leg 2</span>
+                        <span className="text-sm text-white font-medium">Currently on Leg 3</span>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ function ProfileImage() {
             <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm text-white font-medium">Currently on Leg 2</span>
+                    <span className="text-sm text-white font-medium">Currently on Leg 3</span>
                 </div>
             </div>
         </div>
@@ -54,8 +54,8 @@ function ProfileImage() {
 export default function About() {
     const achievements = [
         { icon: MapPin, value: "180,000+", label: "KMs Across India", color: "text-brand-ember" },
-        { icon: Globe, value: "27", label: "Countries Explored", color: "text-brand-teal" },
-        { icon: Mountain, value: "A Grade", label: "ABVMAS Mountaineer", color: "text-brand-gold" },
+        { icon: Globe, value: "47", label: "Countries Explored", color: "text-brand-teal" },
+        { icon: Mountain, value: "Certified", label: "Mountaineer", color: "text-brand-gold" },
         { icon: Briefcase, value: "Culture Ambassador", label: "Mission", color: "text-purple-400" },
     ];
 
@@ -69,11 +69,11 @@ export default function About() {
         {
             year: "Training",
             title: "Mountaineering & Architecture",
-            description: "Graduated from Mumbai University. Trained at ABVMAS with 'A' Grade certification. Learning to conquer physical and mental peaks.",
+            description: "Graduated from Mumbai University. Trained at ABVMAS with 'A' Grade certification in Mountaineering. Learning to conquer physical and mental peaks.",
             icon: "🎓"
         },
         {
-            year: "2018-2023",
+            year: "2013 - Lifelong",
             title: "Exploring India",
             description: "180,000+ kilometers across India. Every road, every mountain, every story prepared for what was to come.",
             icon: "🏍️"
@@ -86,8 +86,14 @@ export default function About() {
         },
         {
             year: "Leg 2",
+            title: "India to Europe via Silk Route",
+            description: "Following the historic Silk Route through Central Asia to Europe, connecting ancient trade paths with modern adventures.",
+            icon: "🛤️"
+        },
+        {
+            year: "Leg 3",
             title: "Euro-Africa Odyssey",
-            description: "Currently underway: Silk Route through Central Asia, across Europe, and down through the African continent.",
+            description: "Currently underway: London → Europe → West Africa. Exploring the diverse landscapes and cultures from European capitals to the heart of West African nations.",
             icon: "🔥"
         }
     ];

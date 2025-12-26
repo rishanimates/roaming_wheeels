@@ -21,9 +21,9 @@ export default function Hero({ onNavigate }: HeroProps) {
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
     const stats = [
-        { value: "32+", label: "Countries" },
-        { value: "40K+", label: "Kilometers" },
-        { value: "150+", label: "Days" },
+        { value: "47+", label: "Countries" },
+        { value: "55K+", label: "Kilometers" },
+        { value: "250+", label: "Days" },
         { value: "1M+", label: "Lives Inspired" },
     ];
 
@@ -114,7 +114,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 >
                     <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm font-medium text-brand-gold">
                         <span className="w-2 h-2 rounded-full bg-brand-ember animate-pulse" />
-                        World Ride Expedition • Leg 2 Active
+                        World Ride Expedition • Leg 3 Active
                     </span>
                 </motion.div>
 

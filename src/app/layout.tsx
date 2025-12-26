@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         "Roaming Wheeels",
         "adventure travel",
         "India to London",
-        "Euro-Africa Odyssey",
+        "India to Europe Silk Route",
         "motorcycle journey",
         "travel blogger",
         "adventure YouTuber",

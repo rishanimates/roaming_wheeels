@@ -15,45 +15,69 @@ const legs = [
         year: "2023",
         color: "from-green-500 to-emerald-500",
         route: [
-            "Mumbai", "Nepal", "China", "Kazakhstan", "Russia", 
-            "Scandinavia", "Western Europe", "London", "Return via Same Route"
+            "India", "Iran", "Turkey", "Greece", "North Macedonia", "Albania", "Montenegro", 
+            "Bosnia Herzegovina", "Croatia", "Slovenia", "Italy", "Switzerland", "France", "UK", 
+            "Belgium", "Luxembourg", "Germany", "Austria", "Slovakia", "Romania", "Hungary", 
+            "Serbia", "Bulgaria", "Turkey", "Georgia", "Azerbaijan", "Armenia", "Iran", "UAE", "Bahrain", "India"
+        ],
+        highlights: [
+            { name: "Persepolis Ruins", location: "Iran", icon: "🏛️" },
+            { name: "Santorini Island", location: "Greece", icon: "🏝️" },
+            { name: "Adriatic Coast", location: "Croatia", icon: "🌊" },
+            { name: "Swiss Alps", location: "Switzerland", icon: "🏔️" },
+            { name: "Tower Bridge", location: "London, UK", icon: "🌉" },
+            { name: "Caucasus Mountains", location: "Georgia", icon: "⛰️" }
         ]
     },
     {
         id: 2,
-        title: "Leg 2: Euro-Africa Odyssey",
+        title: "Leg 2: India to Europe via Silk Route",
+        status: "Completed",
+        distance: "25,000 km",
+        duration: "120 Days",
+        countries: 17,
+        year: "2025",
+        color: "from-blue-500 to-cyan-500",
+        route: [
+            "India", "Nepal", "China/Tibet", "Kazakhstan", "Kyrgyzstan", "Uzbekistan", "Kazakhstan", 
+            "Russia", "Estonia", "Latvia", "Finland", "Norway", "Sweden", "Denmark", "Germany", 
+            "Netherlands", "Belgium", "France", "UK"
+        ],
+        highlights: [
+            { name: "Everest Region", location: "Nepal/Tibet", icon: "🏔️" },
+            { name: "Silk Road Cities", location: "Uzbekistan", icon: "🕌" },
+            { name: "Issyk-Kul Lake", location: "Kyrgyzstan", icon: "🏞️" },
+            { name: "Baltic States", location: "Estonia/Latvia", icon: "🏰" },
+            { name: "Norwegian Fjords", location: "Norway", icon: "🌊" },
+            { name: "Arctic Circle", location: "Finland", icon: "❄️" }
+        ]
+    },
+    {
+        id: 3,
+        title: "Leg 3: Euro-Africa Odyssey",
         status: "In Progress",
-        distance: "40,000+ km",
+        distance: "35,000 km",
         duration: "150+ Days",
-        countries: 32,
-        year: "2024-25",
+        countries: 30,
+        year: "2025-26",
         color: "from-brand-ember to-brand-gold",
-        sections: [
-            {
-                name: "Part A: Silk Route",
-                route: ["India", "Nepal", "China", "Kazakhstan", "Kyrgyzstan", "Tajikistan", "Uzbekistan", "Russia", "Finland", "Scandinavia", "Western Europe", "Spain"]
-            },
-            {
-                name: "Part B: African Odyssey",
-                route: ["Morocco", "Mauritania", "Senegal", "Ghana", "Nigeria", "Cameroon", "Gabon", "Congo", "Angola", "Namibia", "South Africa", "Mozambique", "Tanzania", "Kenya", "Ethiopia", "Return to India"]
-            }
+        route: [
+            "London", "France", "Spain", "Morocco", "Western Sahara", "Mauritania", 
+            "Senegal", "Gambia", "Guinea", "Sierra Leone", "Liberia", "Ivory Coast", "Ghana", "Togo", "Benin", "Nigeria", "Cameroon", "Gabon", "Congo", "Angola", "Namibia", "South Africa"
+        ],
+        highlights: [
+            { name: "Sahara Desert", location: "Morocco", icon: "🐪" },
+            { name: "Dakar City", location: "Senegal", icon: "🌴" },
+            { name: "Gold Coast", location: "Ghana", icon: "🏖️" },
+            { name: "Sossusvlei Dunes", location: "Namibia", icon: "🏜️" },
+            { name: "Victoria Falls", location: "Zambia", icon: "💧" },
+            { name: "Table Mountain", location: "South Africa", icon: "⛰️" }
         ]
     }
 ];
 
-const highlights = [
-    { name: "Sossusvlei Dunes", location: "Namibia", icon: "🏜️" },
-    { name: "Mount Kilimanjaro", location: "Tanzania", icon: "🏔️" },
-    { name: "Victoria Falls", location: "Zambia", icon: "💧" },
-    { name: "Table Mountain", location: "South Africa", icon: "⛰️" },
-    { name: "Silk Road Cities", location: "Central Asia", icon: "🕌" },
-    { name: "Sahara Desert", location: "Morocco", icon: "🐪" },
-    { name: "Norwegian Fjords", location: "Norway", icon: "🌊" },
-    { name: "Kazakh Steppe", location: "Kazakhstan", icon: "🌾" }
-];
-
 export default function Journey() {
-    const [activeLeg, setActiveLeg] = useState(2);
+    const [activeLeg, setActiveLeg] = useState(3);
 
     return (
         <section className="relative py-32 overflow-hidden">
@@ -90,7 +114,7 @@ export default function Journey() {
                         The <span className="text-gradient">World Ride</span>
                     </h2>
                     <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-                        Two epic legs spanning continents, cultures, and countless stories.
+                        Three epic legs spanning continents, cultures, and countless stories.
                     </p>
                 </motion.div>
 
@@ -176,97 +200,68 @@ export default function Journey() {
                             </div>
                         </motion.div>
 
-                        {/* Route Details */}
-                        {leg.id === 1 && leg.route && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="p-8 rounded-2xl bg-white/5 border border-white/10 mb-12"
-                            >
-                                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                                    <Globe className="w-5 h-5 text-brand-teal" />
-                                    Route Overview
-                                </h4>
-                                <div className="flex flex-wrap gap-2">
-                                    {leg.route.map((place, idx) => (
-                                        <span 
-                                            key={idx}
-                                            className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-white/10 text-white text-sm"
-                                        >
-                                            <MapPin className="w-3 h-3 text-brand-ember" />
-                                            {place}
-                                            {idx < leg.route.length - 1 && (
-                                                <ChevronRight className="w-4 h-4 text-text-secondary ml-1" />
-                                            )}
-                                        </span>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
-
-                        {leg.id === 2 && leg.sections && (
-                            <div className="grid md:grid-cols-2 gap-6 mb-12">
-                                {leg.sections.map((section, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="p-6 rounded-2xl bg-white/5 border border-white/10"
+                        {/* Route Overview */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="p-8 rounded-2xl bg-white/5 border border-white/10 mb-8"
+                        >
+                            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                <Globe className="w-5 h-5 text-brand-teal" />
+                                Route Overview
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                                {leg.route.map((place, idx) => (
+                                    <span 
+                                        key={idx}
+                                        className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-white/10 text-white text-sm"
                                     >
-                                        <h4 className={`text-xl font-bold mb-4 ${
-                                            index === 0 ? "text-brand-teal" : "text-brand-ember"
-                                        }`}>
-                                            {section.name}
-                                        </h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {section.route.map((place, idx) => (
-                                                <span 
-                                                    key={idx}
-                                                    className="px-3 py-1.5 rounded-full bg-white/10 text-white/80 text-sm"
-                                                >
-                                                    {place}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        <MapPin className="w-3 h-3 text-brand-ember" />
+                                        {place}
+                                        {idx < leg.route.length - 1 && (
+                                            <ChevronRight className="w-4 h-4 text-text-secondary ml-1" />
+                                        )}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Leg-specific Highlights */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            className="mb-8"
+                        >
+                            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                <Mountain className="w-5 h-5 text-brand-gold" />
+                                Expedition Highlights - {leg.title.split(":")[0]}
+                            </h4>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                                {leg.highlights.map((item, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        whileHover={{ y: -5, scale: 1.02 }}
+                                        className={`p-4 rounded-xl bg-gradient-to-br ${
+                                            leg.id === 1 ? "from-green-500/20 to-emerald-500/20 border-green-500/20 hover:border-green-500/50" :
+                                            leg.id === 2 ? "from-blue-500/20 to-cyan-500/20 border-blue-500/20 hover:border-blue-500/50" :
+                                            "from-brand-ember/20 to-brand-gold/20 border-brand-ember/20 hover:border-brand-ember/50"
+                                        } border text-center cursor-pointer transition-all`}
+                                    >
+                                        <div className="text-2xl mb-2">{item.icon}</div>
+                                        <div className="font-bold text-white text-xs leading-tight mb-1">{item.name}</div>
+                                        <div className="text-[10px] text-text-secondary uppercase tracking-wider">{item.location}</div>
                                     </motion.div>
                                 ))}
                             </div>
-                        )}
+                        </motion.div>
                     </motion.div>
                 ))}
-
-                {/* Highlights */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="mt-16"
-                >
-                    <h3 className="text-2xl font-bold text-white text-center mb-8 flex items-center justify-center gap-2">
-                        <Mountain className="w-6 h-6 text-brand-gold" />
-                        Expedition Highlights
-                    </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {highlights.map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.05 }}
-                                whileHover={{ y: -5, scale: 1.02 }}
-                                className="p-5 rounded-xl bg-gradient-to-br from-brand-ember/20 to-brand-gold/20 border border-brand-ember/20 text-center cursor-pointer hover:border-brand-ember/50 transition-all"
-                            >
-                                <div className="text-3xl mb-2">{item.icon}</div>
-                                <div className="font-bold text-white text-sm leading-tight mb-1">{item.name}</div>
-                                <div className="text-xs text-text-secondary uppercase tracking-wider">{item.location}</div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
 
                 {/* Live Tracker CTA */}
                 <motion.div

@@ -15,7 +15,7 @@ export default function Mission() {
         },
         {
             icon: Shield,
-            title: "Road Safety Advocacy",
+            title: "Road Safety Drive",
             subtitle: "Ride Safe, Reach Safe",
             description: "Partnering with Maharashtra Motor Vehicle Department to promote helmet usage and safe riding practices.",
             color: "from-brand-ember to-brand-terracotta",
@@ -46,9 +46,9 @@ export default function Mission() {
             lesson: "Humanity speaks one language"
         },
         {
-            quote: "A young boy in Tanzania asked if India was real. When I showed him photos of my village, his eyes lit up. That moment, two worlds became one.",
-            location: "Arusha, Tanzania",
-            lesson: "Every child deserves to dream"
+            quote: "A young lady from Tibet had endless questions about India—the colors, the festivals, the food. Her eyes sparkled as she said, 'Visiting India is my lifelong dream.' In that moment, I realized borders are just lines on maps.",
+            location: "Tibet, China",
+            lesson: "Curiosity connects worlds"
         },
         {
             quote: "Stranded in the Kazakh steppe with a broken chain, a shepherd appeared out of nowhere. He couldn't speak English, but his generosity needed no translation.",
