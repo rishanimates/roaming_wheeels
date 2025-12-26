@@ -6,7 +6,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 interface HeroProps {
-    onNavigate: (section: string) => void;
+    onNavigate?: (section: string) => void;
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
@@ -163,7 +163,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     <motion.button
                         whileHover={{ scale: 1.02, boxShadow: "0 0 40px rgba(255, 107, 53, 0.4)" }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => onNavigate("journey")}
+                        onClick={() => onNavigate?.("journey")}
                         className="group px-8 py-4 bg-gradient-to-r from-brand-ember to-brand-terracotta text-white rounded-full font-bold text-lg shadow-xl flex items-center gap-3"
                     >
                         <MapPin className="w-5 h-5" />
@@ -179,7 +179,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     <motion.button
                         whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => onNavigate("media")}
+                        onClick={() => onNavigate?.("media")}
                         className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white rounded-full font-bold text-lg flex items-center gap-3 hover:border-brand-ember/50 transition-colors"
                     >
                         <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-ember/20 transition-colors">
