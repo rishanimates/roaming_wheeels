@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* Leaflet Map Styles */
+.leaflet-container {
+  background: transparent !important;
+  font-family: inherit;
+}
+
+.leaflet-tooltip {
+  background: rgba(26, 29, 33, 0.9) !important;
+  border: 1px solid rgba(255, 107, 53, 0.3) !important;
+  color: white !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-tooltip::before {
+  border-top-color: rgba(26, 29, 33, 0.9) !important;
+}
+
 /* ============================================
    THEME SYSTEM - Dark, Light, Sand Dunes
    ============================================ */

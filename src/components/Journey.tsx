@@ -1,8 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Navigation, Flag, Compass, Mountain, Globe, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamic import to avoid SSR issues with Leaflet
+const RouteMap = dynamic(() => import("./RouteMap"), { 
+    ssr: false,
+    loading: () => <div className="w-full h-full bg-brand-charcoal/30 animate-pulse rounded-2xl" />
+});
 
 const legs = [
     {
@@ -148,16 +155,15 @@ export default function Journey() {
                     ))}
                 </motion.div>
 
-                {/* Active Leg Details */}
-                {legs.map((leg) => (
+                {/* Active Leg Details - Only render the active leg to force map remount */}
+                <AnimatePresence mode="wait">
+                {legs.filter(leg => leg.id === activeLeg).map((leg) => (
                     <motion.div
-                        key={leg.id}
-                        initial={{ opacity: 0 }}
-                        animate={{ 
-                            opacity: activeLeg === leg.id ? 1 : 0,
-                            display: activeLeg === leg.id ? "block" : "none"
-                        }}
-                        transition={{ duration: 0.3 }}
+                        key={`leg-content-${leg.id}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4 }}
                     >
                         {/* Stats Card */}
                         <motion.div
@@ -200,30 +206,43 @@ export default function Journey() {
                             </div>
                         </motion.div>
 
-                        {/* Route Overview */}
+                        {/* Route Overview with Map */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="p-8 rounded-2xl bg-white/5 border border-white/10 mb-8"
+                            className="rounded-2xl bg-white/5 border border-white/10 mb-8 overflow-hidden"
                         >
-                            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                                <Globe className="w-5 h-5 text-brand-teal" />
-                                Route Overview
-                            </h4>
-                            <div className="flex flex-wrap gap-2">
-                                {leg.route.map((place, idx) => (
-                                    <span 
-                                        key={idx}
-                                        className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-white/10 text-white text-sm"
-                                    >
-                                        <MapPin className="w-3 h-3 text-brand-ember" />
-                                        {place}
-                                        {idx < leg.route.length - 1 && (
-                                            <ChevronRight className="w-4 h-4 text-text-secondary ml-1" />
-                                        )}
-                                    </span>
-                                ))}
+                            {/* Map Background */}
+                            <div className="relative h-[300px] md:h-[400px]">
+                                <RouteMap key={`route-map-${leg.id}-${activeLeg}`} legId={leg.id} />
+                                {/* Overlay gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-brand-midnight via-transparent to-transparent pointer-events-none" />
+                                {/* Title overlay */}
+                                <div className="absolute top-4 left-4 z-10">
+                                    <h4 className="text-xl font-bold text-white flex items-center gap-2 drop-shadow-lg">
+                                        <Globe className="w-5 h-5 text-brand-teal" />
+                                        Route Overview
+                                    </h4>
+                                </div>
+                            </div>
+                            
+                            {/* Route Countries List */}
+                            <div className="p-6 bg-brand-charcoal/50">
+                                <div className="flex flex-wrap gap-2">
+                                    {leg.route.map((place, idx) => (
+                                        <span 
+                                            key={idx}
+                                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10 text-white text-sm hover:bg-white/20 transition-colors"
+                                        >
+                                            <MapPin className="w-3 h-3 text-brand-ember" />
+                                            {place}
+                                            {idx < leg.route.length - 1 && (
+                                                <ChevronRight className="w-3 h-3 text-text-secondary" />
+                                            )}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
 
@@ -262,6 +281,7 @@ export default function Journey() {
                         </motion.div>
                     </motion.div>
                 ))}
+                </AnimatePresence>
 
                 {/* Live Tracker CTA */}
                 <motion.div
