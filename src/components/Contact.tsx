@@ -5,8 +5,8 @@ import { Mail, MapPin, Send, Instagram, Youtube, Twitter, Linkedin, MessageCircl
 import { useState } from "react";
 
 const socialLinks = [
-    { icon: Instagram, label: "Instagram", handle: "@roamingwheels", followers: "850K", color: "from-purple-500 to-pink-500" },
-    { icon: Youtube, label: "YouTube", handle: "Roaming Wheels", followers: "1.2M", color: "from-red-500 to-red-600" },
+    { icon: Instagram, label: "Instagram", handle: "@roamingwheeels", followers: "850K", color: "from-purple-500 to-pink-500" },
+    { icon: Youtube, label: "YouTube", handle: "Roaming Wheeels", followers: "1.2M", color: "from-red-500 to-red-600" },
     { icon: Twitter, label: "Twitter", handle: "@yogeshalekari", followers: "125K", color: "from-blue-400 to-blue-500" },
     { icon: Linkedin, label: "LinkedIn", handle: "Yogesh Alekari", followers: "45K", color: "from-blue-600 to-blue-700" }
 ];
@@ -179,13 +179,13 @@ export default function Contact() {
                         <div className="p-8 rounded-2xl bg-gradient-to-br from-brand-ember/20 to-brand-gold/20 border border-brand-ember/20">
                             <h3 className="text-xl font-bold text-white mb-6">Quick Contact</h3>
                             <div className="space-y-4">
-                                <a href="mailto:contact@roamingwheels.com" className="flex items-center gap-4 text-text-secondary hover:text-white transition-colors group">
+                                <a href="mailto:contact@roamingwheeels.com" className="flex items-center gap-4 text-text-secondary hover:text-white transition-colors group">
                                     <div className="w-12 h-12 rounded-xl bg-brand-ember/20 flex items-center justify-center group-hover:bg-brand-ember transition-colors">
                                         <Mail className="w-5 h-5 text-brand-ember group-hover:text-white" />
                                     </div>
                                     <div>
                                         <p className="text-sm text-text-muted">Email</p>
-                                        <p className="text-white">contact@roamingwheels.com</p>
+                                        <p className="text-white">contact@roamingwheeels.com</p>
                                     </div>
                                 </a>
                                 <div className="flex items-center gap-4 text-text-secondary">

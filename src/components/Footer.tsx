@@ -43,7 +43,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                                 <span className="text-xl font-bold text-white">RW</span>
                             </div>
                             <div>
-                                <h2 className="text-xl font-bold text-white">Roaming<span className="text-gradient">Wheels</span></h2>
+                                <h2 className="text-xl font-bold text-white">Roaming<span className="text-gradient">Wheeels</span></h2>
                                 <p className="text-xs text-text-secondary">World Ride Expedition</p>
                             </div>
                         </div>
@@ -168,7 +168,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
                             <p className="text-text-muted text-sm flex items-center gap-1">
-                                © 2025 Roaming Wheels. Made with <Heart className="w-4 h-4 text-brand-ember" /> from the road.
+                                © 2025 Roaming Wheeels. Made with <Heart className="w-4 h-4 text-brand-ember" /> from the road.
                             </p>
                             <span className="hidden sm:block text-text-muted">•</span>
                             <p className="text-text-muted text-sm">

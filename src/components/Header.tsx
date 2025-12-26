@@ -74,7 +74,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
                             </div>
                             <div className="hidden sm:block">
                                 <h1 className="text-xl font-bold text-white tracking-tight">
-                                    Roaming<span className="text-gradient">Wheels</span>
+                                    Roaming<span className="text-gradient">Wheeels</span>
                                 </h1>
                                 <p className="text-xs text-text-secondary tracking-widest uppercase">
                                     World Ride Expedition

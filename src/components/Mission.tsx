@@ -110,7 +110,7 @@ export default function Mission() {
                             </div>
                             <div className="text-left">
                                 <p className="text-white font-semibold">Yogesh Alekari</p>
-                                <p className="text-text-secondary text-sm">Founder, Roaming Wheels</p>
+                                <p className="text-text-secondary text-sm">Founder, Roaming Wheeels</p>
                             </div>
                         </div>
                     </div>

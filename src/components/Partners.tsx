@@ -213,7 +213,7 @@ export default function Partners() {
                     <div className="relative z-10 text-center max-w-3xl mx-auto">
                         <Sparkles className="w-12 h-12 text-brand-gold mx-auto mb-6" />
                         <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Why Partner With Roaming Wheels?
+                            Why Partner With Roaming Wheeels?
                         </h3>
                         <p className="text-xl text-text-secondary mb-8 leading-relaxed">
                             This isn&apos;t just a motorcycle journey—it&apos;s a movement. A story of determination, 
