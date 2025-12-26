@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Instagram, Youtube, Twitter, Linkedin, MessageCircle, Globe, Clock } from "lucide-react";
+import { Mail, MapPin, Send, Instagram, Youtube, Twitter, Linkedin, MessageCircle, Globe, Clock } from "lucide-react";
 import { useState } from "react";
 
 const socialLinks = [

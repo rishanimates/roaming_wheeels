@@ -152,6 +152,7 @@ export default function ThemeSwitcher() {
 
                             {backgroundImage && (
                                 <div className="relative w-full h-16 rounded-lg overflow-hidden">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={backgroundImage}
                                         alt="Background preview"
