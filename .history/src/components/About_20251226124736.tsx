@@ -56,7 +56,7 @@ export default function About() {
         { icon: MapPin, value: "180,000+", label: "KMs Across India", color: "text-brand-ember" },
         { icon: Globe, value: "27", label: "Countries Explored", color: "text-brand-teal" },
         { icon: Mountain, value: "A Grade", label: "ABVMAS Mountaineer", color: "text-brand-gold" },
-        { icon: Briefcase, value: "Culture Ambassador", label: "Mission", color: "text-purple-400" },
+        { icon: Briefcase, value: "Architect", label: "Profession", color: "text-purple-400" },
     ];
 
     const timeline = [

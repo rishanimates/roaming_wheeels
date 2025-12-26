@@ -149,8 +149,8 @@ export default function Hero({ onNavigate }: HeroProps) {
                     transition={{ delay: 0.5, duration: 0.8 }}
                     className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    Bridging cultures, inspiring dreams, and proving that 
-                    <span className="text-white font-medium"> where you come from doesn&apos;t define where you can go.</span>
+                    Connecting people, learning cultures, sharing Indian values.
+                    <span className="text-white font-medium"> Where every road becomes a bridge between hearts.</span>
                 </motion.p>
 
                 {/* CTA Buttons */}

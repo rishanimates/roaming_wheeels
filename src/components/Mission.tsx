@@ -31,11 +31,11 @@ export default function Mission() {
         },
         {
             icon: Users,
-            title: "Cultural Bridge",
-            subtitle: "Connect Through Stories",
-            description: "Creating meaningful connections between communities across continents through shared experiences and stories.",
+            title: "People & Meetups",
+            subtitle: "Connect, Learn, Share",
+            description: "Every journey is about the people I meet. Learning their way of life, understanding their culture, and sharing India's warmth and values.",
             color: "from-purple-500 to-pink-500",
-            stats: "500+ Stories Shared"
+            stats: "1000+ Connections Made"
         }
     ];
 
@@ -83,8 +83,8 @@ export default function Mission() {
                         Riding With <span className="text-gradient">Purpose</span>
                     </h2>
                     <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-                        This journey is more than kilometers on a map. It&apos;s a movement to connect hearts, 
-                        inspire minds, and prove that extraordinary dreams can come from ordinary beginnings.
+                        More than just riding—it&apos;s about connecting with people, understanding their way of living, 
+                        experiencing diverse cultures, and sharing the warmth of Indian values with the world.
                     </p>
                 </motion.div>
 
@@ -100,9 +100,9 @@ export default function Mission() {
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
                         <Quote className="w-12 h-12 text-brand-ember/30 mx-auto mb-6" />
                         <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed mb-8 italic">
-                            &ldquo;From the heart of rural India to the far corners of the world—one rider, one motorcycle, 
-                            infinite possibilities. Bridging cultures, inspiring dreams, and proving that 
-                            <span className="text-gradient font-medium"> where you come from doesn&apos;t define where you can go.</span>&rdquo;
+                            &ldquo;Every stop is a meetup. Every stranger becomes family. I ride not just to explore—but to 
+                            connect, learn, and share. 
+                            <span className="text-gradient font-medium">The road is my classroom, and humanity is my teacher.</span>&rdquo;
                         </blockquote>
                         <div className="flex items-center justify-center gap-4">
                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-ember to-brand-gold flex items-center justify-center text-white font-bold">

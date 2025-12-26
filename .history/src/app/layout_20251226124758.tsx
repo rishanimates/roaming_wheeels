@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Roaming Wheeels | World Ride Expedition",
-        description: "Connecting people, cultures & hearts across borders. Sharing Indian values with the world.",
+        description: "One Rider. One Motorcycle. Infinite Possibilities.",
         creator: "@yogeshalekari",
         images: ["/og-image.jpg"]
     },
