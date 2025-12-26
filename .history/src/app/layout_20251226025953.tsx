@@ -30,7 +30,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://roaming-wheeels.pages.dev"),
+    metadataBase: new URL("https://roamingwheeels.com"),
     title: "Roaming Wheeels | World Ride Expedition by Yogesh Alekari",
     description: "From a remote village in India to the world stage. Follow Yogesh Alekari's epic motorcycle expedition across 32+ countries, 40,000+ kilometers. Bridging cultures, inspiring dreams, and proving that where you come from doesn't define where you can go.",
     keywords: [
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
         description: "One Rider. One Motorcycle. Infinite Possibilities. Follow the epic journey across continents.",
         images: [
             {
-                url: "/og-image.jpg",
-                width: 2832,
-                height: 3119,
+                url: "/images/profile.JPEG",
+                width: 1200,
+                height: 630,
                 alt: "Roaming Wheeels - Yogesh Alekari World Ride Expedition"
             }
         ]
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
         title: "Roaming Wheeels | World Ride Expedition",
         description: "One Rider. One Motorcycle. Infinite Possibilities.",
         creator: "@yogeshalekari",
-        images: ["/og-image.jpg"]
+        images: ["/images/profile.JPEG"]
     },
     robots: {
         index: true,

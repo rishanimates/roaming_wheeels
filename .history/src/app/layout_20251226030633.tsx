@@ -30,7 +30,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://roaming-wheeels.pages.dev"),
+    metadataBase: new URL("https://roamingwheeels.com"),
     title: "Roaming Wheeels | World Ride Expedition by Yogesh Alekari",
     description: "From a remote village in India to the world stage. Follow Yogesh Alekari's epic motorcycle expedition across 32+ countries, 40,000+ kilometers. Bridging cultures, inspiring dreams, and proving that where you come from doesn't define where you can go.",
     keywords: [
