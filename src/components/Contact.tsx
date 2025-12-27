@@ -7,9 +7,9 @@ import { useState } from "react";
 const socialLinks = [
     { icon: Instagram, label: "Instagram", handle: "@roaming_wheeels", href: "https://instagram.com/roaming_wheeels", followers: "200K", color: "from-purple-500 to-pink-500" },
     { icon: Youtube, label: "YouTube", handle: "@roamingwheeels", href: "https://youtube.com/@roamingwheeels", followers: "10.7K", color: "from-red-500 to-red-600" },
-    { icon: Facebook, label: "Facebook", handle: "yogesh.alekari", href: "https://facebook.com/yogesh.alekari", followers: "45K", color: "from-blue-500 to-blue-600" },
-    { icon: Twitter, label: "Twitter", handle: "@YogeshAlekari", href: "https://twitter.com/YogeshAlekari", followers: "125K", color: "from-blue-400 to-blue-500" },
-    { icon: Linkedin, label: "LinkedIn", handle: "Yogesh Alekari", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/", followers: "45K", color: "from-blue-600 to-blue-700" },
+    { icon: Facebook, label: "Facebook", handle: "yogesh.alekari", href: "https://facebook.com/yogesh.alekari", followers: "25K", color: "from-blue-500 to-blue-600" },
+    { icon: Twitter, label: "Twitter", handle: "@YogeshAlekari", href: "https://twitter.com/YogeshAlekari", followers: "", color: "from-blue-400 to-blue-500" },
+    { icon: Linkedin, label: "LinkedIn", handle: "Yogesh Alekari", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/", followers: "", color: "from-blue-600 to-blue-700" },
     { icon: MapPinned, label: "Polarsteps", handle: "Journey Map", href: "https://www.polarsteps.com/YogeshAlekari/6797402-mumbai-to-london-motorcycle-ride", followers: "Track", color: "from-teal-500 to-cyan-500" },
     { icon: FileText, label: "Blog", handle: "Travel Stories", href: "https://yogeshalekari.blogspot.com", followers: "Read", color: "from-orange-500 to-amber-500" }
 ];
@@ -240,7 +240,9 @@ export default function Contact() {
                                                     <p className="text-text-secondary text-xs">{social.handle}</p>
                                                 </div>
                                             </div>
-                                            <p className="text-brand-gold text-sm font-medium">{social.followers} {social.label === "Polarsteps" || social.label === "Blog" ? "" : "followers"}</p>
+                                            <p className="text-brand-gold text-sm font-medium">
+                                                {social.followers && social.label !== "Polarsteps" && social.label !== "Blog" ? `${social.followers} followers` : social.followers}
+                                            </p>
                                         </motion.a>
                                     );
                                 })}
