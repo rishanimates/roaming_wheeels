@@ -5,13 +5,15 @@ import { useState, useEffect } from "react";
 // More detailed coordinates with intermediate waypoints for road-like routes
 const legCoordinates: Record<number, [number, number][]> = {
     1: [
-        // Mumbai to Iran
-        [19.076, 72.877], [21.17, 72.83], [23.02, 72.57], [24.58, 73.68], [26.92, 75.78],
-        [28.61, 77.20], [30.73, 76.77], [31.54, 74.34], [33.72, 73.06], // Through India/Pakistan border area
-        [35.92, 74.30], [36.71, 67.11], [34.52, 69.17], // Afghanistan area
-        [32.42, 53.68], // Tehran, Iran
-        // Iran to Turkey
-        [35.69, 51.42], [37.55, 45.07], [38.42, 43.23], [39.92, 32.85], // Turkey
+        // Mumbai, India (start)
+        [19.076, 72.877],
+        // Flight path Mumbai to Tehran (shown as dotted line by fewer points)
+        [20.5, 70.5], [22.0, 68.0], [24.5, 64.0], [27.5, 60.0], [30.0, 56.0],
+        // Tehran, Iran
+        [32.42, 53.68],
+        // Iran to Turkey (road)
+        [33.5, 52.0], [34.8, 50.2], [35.69, 51.42], [36.5, 48.5], [37.55, 45.07], 
+        [38.42, 43.23], [39.92, 32.85],
         // Turkey to Greece  
         [40.98, 29.02], [41.01, 28.97], [40.64, 22.94], [39.64, 22.41], [37.98, 23.72],
         // Greece through Balkans
@@ -34,10 +36,12 @@ const legCoordinates: Record<number, [number, number][]> = {
         [41.71, 44.82], [40.17, 44.51], [40.40, 49.86],
         // Back to Iran
         [38.07, 46.29], [35.69, 51.42], [32.42, 53.68],
-        // Gulf states
-        [27.47, 53.39], [25.27, 55.29], [26.22, 50.58],
-        // Back to India
-        [24.86, 67.00], [23.02, 72.57], [19.07, 72.87]
+        // Gulf states (road)
+        [29.5, 53.0], [27.47, 53.39], [25.27, 55.29], [26.22, 50.58],
+        // Back to India (flight path - fewer points)
+        [25.5, 58.0], [24.0, 62.0], [23.0, 66.0], [22.0, 70.0],
+        // Mumbai, India (return)
+        [19.07, 72.87]
     ],
     2: [
         // India to Nepal

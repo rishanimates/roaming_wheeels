@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Twitter, Linkedin, ArrowUp, Heart, MapPin } from "lucide-react";
+import { Instagram, Youtube, Twitter, Linkedin, ArrowUp, Heart, MapPin, Facebook } from "lucide-react";
 
 interface FooterProps {
     onNavigate: (section: string) => void;
@@ -20,10 +20,11 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-    { icon: Instagram, label: "Instagram", href: "#" },
-    { icon: Youtube, label: "YouTube", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" }
+    { icon: Instagram, label: "Instagram", href: "https://instagram.com/roaming_wheeels" },
+    { icon: Youtube, label: "YouTube", href: "https://youtube.com/@roamingwheeels" },
+    { icon: Facebook, label: "Facebook", href: "https://facebook.com/yogesh.alekari" },
+    { icon: Twitter, label: "Twitter", href: "https://twitter.com/YogeshAlekari" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/" }
 ];
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -58,6 +59,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                                     <motion.a
                                         key={index}
                                         href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                         className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary hover:text-white hover:border-brand-ember hover:bg-brand-ember/20 transition-all"
