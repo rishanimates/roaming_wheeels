@@ -1,0 +1,24 @@
+{
+  "name": "Roaming Wheeels - World Ride Expedition",
+  "short_name": "Roaming Wheeels",
+  "description": "Follow Yogesh Alekari's incredible motorcycle journey across 47+ countries. Connecting people, learning cultures, sharing Indian values.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#FF6B35",
+  "background_color": "#0A0E1A",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary"
+}
+
