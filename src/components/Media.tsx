@@ -55,34 +55,47 @@ const youtubeVideos = [
 const pressArticles = [
     {
         id: 1,
-        title: "From a Remote Village to Conquering the World on Two Wheels",
-        publication: "The Times of India",
-        date: "Nov 2024",
-        type: "Feature Story",
+        videoId: "7s7VnMycoeA",
+        title: "Roaming Wheeels Media Coverage 1",
+        publication: "News Feature",
+        date: "2024",
+        type: "Video Report",
         logo: "📰"
     },
     {
         id: 2,
-        title: "Indian Architect's Epic Journey: Mumbai to London by Road",
-        publication: "Hindustan Times",
-        date: "Oct 2024",
-        type: "Interview",
+        videoId: "1xkLf0AE6l4",
+        title: "Roaming Wheeels Media Coverage 2",
+        publication: "News Feature",
+        date: "2024",
+        type: "Video Report",
         logo: "📰"
     },
     {
         id: 3,
-        title: "The Road Safety Ambassador Who Practices What He Preaches",
-        publication: "Maharashtra Times",
-        date: "Sep 2024",
-        type: "Profile",
+        videoId: "oO8QVPJkUL4",
+        title: "Roaming Wheeels Media Coverage 3",
+        publication: "News Feature",
+        date: "2024",
+        type: "Video Report",
         logo: "📰"
     },
     {
         id: 4,
-        title: "Vasudhaiva Kutumbakam on Wheels: One Man's Mission",
-        publication: "India Today",
-        date: "Aug 2024",
-        type: "Cover Story",
+        videoId: "l_fBLKPDr_M",
+        title: "Roaming Wheeels Media Coverage 4",
+        publication: "News Feature",
+        date: "2024",
+        type: "Video Report",
+        logo: "📰"
+    },
+    {
+        id: 5,
+        videoId: "EmjGIqb4-oo",
+        title: "Roaming Wheeels Media Coverage 5",
+        publication: "News Feature",
+        date: "2024",
+        type: "Video Report",
         logo: "📰"
     }
 ];
@@ -110,15 +123,45 @@ const tvAppearances = [
 
 const podcasts = [
     {
-        name: "The Ranveer Show",
-        episode: "Ep 234: The World Rider",
-        platform: "Spotify",
+        videoId: "xuqEderflHQ",
+        title: "Roaming Wheeels Podcast Episode 1",
+        platform: "YouTube",
         icon: Radio
     },
     {
-        name: "On Purpose with Jay Shetty",
-        episode: "Living With Purpose on Two Wheels",
-        platform: "Apple Podcasts",
+        videoId: "XNQybLH2Xw4",
+        title: "Roaming Wheeels Podcast Episode 2",
+        platform: "YouTube",
+        icon: Radio
+    },
+    {
+        videoId: "qRMrK1UES0w",
+        title: "Roaming Wheeels Podcast Episode 3",
+        platform: "YouTube",
+        icon: Radio
+    },
+    {
+        videoId: "f52ZhkkqXK0",
+        title: "Roaming Wheeels Podcast Episode 4",
+        platform: "YouTube",
+        icon: Radio
+    },
+    {
+        videoId: "X-FkaHxsYAI",
+        title: "Roaming Wheeels Podcast Episode 5",
+        platform: "YouTube",
+        icon: Radio
+    },
+    {
+        videoId: "RfqoNvpYjE4",
+        title: "Roaming Wheeels Podcast Episode 6",
+        platform: "YouTube",
+        icon: Radio
+    },
+    {
+        videoId: "TZA9wVXDB0w",
+        title: "Roaming Wheeels Podcast Episode 7",
+        platform: "YouTube",
         icon: Radio
     }
 ];
@@ -316,40 +359,50 @@ export default function Media() {
                     >
                         <div className="flex items-center gap-3 mb-8">
                             <Newspaper className="w-6 h-6 text-brand-gold" />
-                            <h3 className="text-2xl font-bold text-white">Press Coverage</h3>
+                            <h3 className="text-2xl font-bold text-white">Press & News Coverage</h3>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {pressArticles.map((article, index) => (
-                                <motion.a
+                                <motion.div
                                     key={article.id}
-                                    href="#"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-gold/50 transition-all"
+                                    className="group"
                                 >
-                                    <div className="flex items-start gap-4">
-                                        <div className="text-4xl">{article.logo}</div>
+                                    {/* YouTube Embed */}
+                                    <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${article.videoId}`}
+                                            title={article.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+
+                                    {/* Info */}
+                                    <div className="flex items-start gap-3">
+                                        <div className="text-2xl">{article.logo}</div>
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <span className="text-brand-gold font-medium">{article.publication}</span>
+                                                <span className="text-brand-gold font-medium text-sm">{article.publication}</span>
                                                 <span className="px-2 py-0.5 rounded bg-brand-gold/10 text-brand-gold text-xs">
                                                     {article.type}
                                                 </span>
                                             </div>
-                                            <h4 className="text-white font-medium mb-2 group-hover:text-brand-gold transition-colors">
+                                            <h4 className="text-white font-medium text-sm mb-1 group-hover:text-brand-gold transition-colors line-clamp-2">
                                                 {article.title}
                                             </h4>
-                                            <div className="flex items-center gap-2 text-text-secondary text-sm">
+                                            <div className="flex items-center gap-2 text-text-secondary text-xs">
                                                 <Calendar className="w-3 h-3" />
                                                 {article.date}
                                             </div>
                                         </div>
-                                        <ExternalLink className="w-5 h-5 text-text-secondary group-hover:text-brand-gold transition-colors" />
                                     </div>
-                                </motion.a>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
@@ -398,12 +451,13 @@ export default function Media() {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
+                                className="md:col-span-2"
                             >
                                 <div className="flex items-center gap-3 mb-6">
                                     <Radio className="w-6 h-6 text-purple-400" />
                                     <h3 className="text-xl font-bold text-white">Podcast Features</h3>
                                 </div>
-                                <div className="space-y-4">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {podcasts.map((podcast, index) => (
                                         <motion.div
                                             key={index}
@@ -411,19 +465,30 @@ export default function Media() {
                                             whileInView={{ opacity: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: index * 0.1 }}
-                                            className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all cursor-pointer group"
+                                            className="group"
                                         >
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                                                    <Radio className="w-6 h-6 text-white" />
+                                            {/* YouTube Embed */}
+                                            <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                                                <iframe
+                                                    src={`https://www.youtube.com/embed/${podcast.videoId}`}
+                                                    title={podcast.title}
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    className="w-full h-full"
+                                                />
+                                            </div>
+                                            
+                                            {/* Info */}
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                                    <Radio className="w-5 h-5 text-white" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <p className="text-purple-400 font-medium">{podcast.name}</p>
-                                                    <p className="text-white text-sm">{podcast.episode}</p>
+                                                    <p className="text-white font-medium text-sm group-hover:text-purple-400 transition-colors line-clamp-2">
+                                                        {podcast.title}
+                                                    </p>
+                                                    <span className="text-purple-400 text-xs">{podcast.platform}</span>
                                                 </div>
-                                                <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs">
-                                                    {podcast.platform}
-                                                </span>
                                             </div>
                                         </motion.div>
                                     ))}
