@@ -62,9 +62,9 @@ const collaborationTypes = [
 ];
 
 const impactMetrics = [
-    { value: "5M+", label: "Social Reach" },
-    { value: "1.2M", label: "YouTube Subscribers" },
-    { value: "32+", label: "Countries Covered" },
+    { value: "15M+", label: "Social Reach" },
+    { value: "10.7K", label: "YouTube Subscribers" },
+    { value: "47+", label: "Countries Covered" },
     { value: "500+", label: "Media Features" }
 ];
 

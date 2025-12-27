@@ -9,8 +9,8 @@ const mediaCategories = ["All", "YouTube", "Press", "TV", "Podcasts"];
 const youtubeVideos = [
     {
         id: 1,
-        title: "Crossing 27 Countries on a Motorcycle | Full Documentary",
-        views: "1.2M",
+        title: "Crossing 47 Countries on a Motorcycle | Full Documentary",
+        views: "850K",
         duration: "48:32",
         thumbnail: "doc-1",
         featured: true
@@ -195,7 +195,7 @@ export default function Media() {
                         <div className="flex items-center gap-3 mb-8">
                             <Youtube className="w-6 h-6 text-red-500" />
                             <h3 className="text-2xl font-bold text-white">YouTube Channel</h3>
-                            <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm">1.2M Subscribers</span>
+                            <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm">10.7K Subscribers</span>
                         </div>
 
                         {/* Featured Video */}
@@ -231,12 +231,12 @@ export default function Media() {
                                         FEATURED DOCUMENTARY
                                     </span>
                                     <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                                        Crossing 27 Countries on a Motorcycle | Full Documentary
+                                        Crossing 47 Countries on a Motorcycle | Full Documentary
                                     </h4>
                                     <div className="flex items-center gap-4 text-white/70 text-sm">
                                         <span className="flex items-center gap-1">
                                             <Eye className="w-4 h-4" />
-                                            1.2M views
+                                            850K views
                                         </span>
                                         <span>•</span>
                                         <span>48 minutes</span>

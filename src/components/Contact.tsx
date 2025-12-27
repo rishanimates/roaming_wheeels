@@ -5,8 +5,8 @@ import { Mail, MapPin, Send, Instagram, Youtube, Twitter, Linkedin, MessageCircl
 import { useState } from "react";
 
 const socialLinks = [
-    { icon: Instagram, label: "Instagram", handle: "@roaming_wheeels", href: "https://instagram.com/roaming_wheeels", followers: "850K", color: "from-purple-500 to-pink-500" },
-    { icon: Youtube, label: "YouTube", handle: "@roamingwheeels", href: "https://youtube.com/@roamingwheeels", followers: "1.2M", color: "from-red-500 to-red-600" },
+    { icon: Instagram, label: "Instagram", handle: "@roaming_wheeels", href: "https://instagram.com/roaming_wheeels", followers: "200K", color: "from-purple-500 to-pink-500" },
+    { icon: Youtube, label: "YouTube", handle: "@roamingwheeels", href: "https://youtube.com/@roamingwheeels", followers: "10.7K", color: "from-red-500 to-red-600" },
     { icon: Facebook, label: "Facebook", handle: "yogesh.alekari", href: "https://facebook.com/yogesh.alekari", followers: "45K", color: "from-blue-500 to-blue-600" },
     { icon: Twitter, label: "Twitter", handle: "@YogeshAlekari", href: "https://twitter.com/YogeshAlekari", followers: "125K", color: "from-blue-400 to-blue-500" },
     { icon: Linkedin, label: "LinkedIn", handle: "Yogesh Alekari", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/", followers: "45K", color: "from-blue-600 to-blue-700" },
