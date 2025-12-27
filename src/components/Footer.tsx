@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Twitter, Linkedin, ArrowUp, Heart, MapPin, Facebook } from "lucide-react";
+import { Instagram, Youtube, Linkedin, ArrowUp, Heart, MapPin, Facebook } from "lucide-react";
+
+// Custom X (Twitter) icon component
+const XIcon = ({ size }: { size?: number }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" width={size || 18} height={size || 18}>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+);
 
 interface FooterProps {
     onNavigate: (section: string) => void;
@@ -23,7 +30,7 @@ const socialLinks = [
     { icon: Instagram, label: "Instagram", href: "https://instagram.com/roaming_wheeels" },
     { icon: Youtube, label: "YouTube", href: "https://youtube.com/@roamingwheeels" },
     { icon: Facebook, label: "Facebook", href: "https://facebook.com/yogesh.alekari" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com/YogeshAlekari" },
+    { icon: XIcon, label: "X (Twitter)", href: "https://twitter.com/YogeshAlekari" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/" }
 ];
 
@@ -64,8 +71,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                         className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary hover:text-white hover:border-brand-ember hover:bg-brand-ember/20 transition-all"
+                                        aria-label={social.label}
                                     >
-                                        <Icon size={18} />
+                                        {Icon === XIcon ? <XIcon size={18} /> : <Icon size={18} />}
                                     </motion.a>
                                 );
                             })}

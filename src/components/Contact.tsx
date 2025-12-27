@@ -1,14 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Instagram, Youtube, Twitter, Linkedin, MessageCircle, Globe, Clock, Facebook, FileText, MapPinned } from "lucide-react";
+import { Mail, MapPin, Send, Instagram, Youtube, Linkedin, MessageCircle, Globe, Clock, Facebook, FileText, MapPinned } from "lucide-react";
 import { useState } from "react";
+
+// Custom X (Twitter) icon component
+const XIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+);
 
 const socialLinks = [
     { icon: Instagram, label: "Instagram", handle: "@roaming_wheeels", href: "https://instagram.com/roaming_wheeels", followers: "200K", color: "from-purple-500 to-pink-500" },
     { icon: Youtube, label: "YouTube", handle: "@roamingwheeels", href: "https://youtube.com/@roamingwheeels", followers: "10.7K", color: "from-red-500 to-red-600" },
     { icon: Facebook, label: "Facebook", handle: "yogesh.alekari", href: "https://facebook.com/yogesh.alekari", followers: "25K", color: "from-blue-500 to-blue-600" },
-    { icon: Twitter, label: "Twitter", handle: "@YogeshAlekari", href: "https://twitter.com/YogeshAlekari", followers: "", color: "from-blue-400 to-blue-500" },
+    { icon: XIcon, label: "X (Twitter)", handle: "@YogeshAlekari", href: "https://twitter.com/YogeshAlekari", followers: "", color: "from-gray-700 to-black" },
     { icon: Linkedin, label: "LinkedIn", handle: "Yogesh Alekari", href: "https://www.linkedin.com/in/yogesh-alekari-4948862a/", followers: "", color: "from-blue-600 to-blue-700" },
     { icon: MapPinned, label: "Polarsteps", handle: "Journey Map", href: "https://www.polarsteps.com/YogeshAlekari/6797402-mumbai-to-london-motorcycle-ride", followers: "Track", color: "from-teal-500 to-cyan-500" },
     { icon: FileText, label: "Blog", handle: "Travel Stories", href: "https://yogeshalekari.blogspot.com", followers: "Read", color: "from-orange-500 to-amber-500" }
