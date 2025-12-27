@@ -340,11 +340,16 @@ export default function Media() {
                             viewport={{ once: true }}
                             className="mt-8 text-center"
                         >
-                            <button className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-all">
+                            <a 
+                                href="https://www.youtube.com/@roamingwheeels?sub_confirmation=1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-all"
+                            >
                                 <Youtube className="w-5 h-5" />
                                 Subscribe on YouTube
                                 <ExternalLink className="w-4 h-4" />
-                            </button>
+                            </a>
                         </motion.div>
                     </motion.div>
                 )}
