@@ -85,7 +85,8 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: "/favicon.ico",
+        icon: "/images/logo.jpg",
+        apple: "/images/logo.jpg",
     },
     manifest: "/site.webmanifest",
 };
