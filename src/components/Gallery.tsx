@@ -3,128 +3,209 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Camera, X, ChevronLeft, ChevronRight, Heart, Download, Share2, MapPin } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const categories = ["All", "Landscapes", "Culture", "Adventure", "Wildlife", "Portraits"];
 
 const galleryItems = [
     {
         id: 1,
-        title: "Sossusvlei Sunrise",
-        location: "Namibia",
+        title: "Majestic Peaks",
+        location: "Himalayas",
         category: "Landscapes",
         featured: true,
-        gradient: "from-orange-500 via-red-500 to-yellow-500",
+        image: "/images/gallery/landscape/landscape_001.jpg",
         likes: 4521,
         span: "col-span-2 row-span-2"
     },
     {
         id: 2,
-        title: "Maasai Warriors",
-        location: "Tanzania",
+        title: "Border Crossing",
+        location: "Nepal-China Border",
         category: "Culture",
         featured: false,
-        gradient: "from-amber-600 via-orange-500 to-red-600",
+        image: "/images/gallery/culture/culture_001.jpg",
         likes: 2847,
         span: "col-span-1 row-span-1"
     },
     {
         id: 3,
-        title: "Norwegian Fjords",
+        title: "Mountain Serenity",
         location: "Norway",
         category: "Landscapes",
         featured: false,
-        gradient: "from-blue-600 via-cyan-500 to-teal-500",
+        image: "/images/gallery/landscape/landscape_002.jpg",
         likes: 3156,
         span: "col-span-1 row-span-1"
     },
     {
         id: 4,
-        title: "Silk Road Sunset",
-        location: "Uzbekistan",
+        title: "The Long Road",
+        location: "Silk Route",
         category: "Adventure",
         featured: false,
-        gradient: "from-purple-600 via-pink-500 to-orange-500",
+        image: "/images/gallery/adventure/adventure_001.jpg",
         likes: 2234,
         span: "col-span-1 row-span-2"
     },
     {
         id: 5,
-        title: "Desert Elephant",
-        location: "Namibia",
+        title: "Wild Encounter",
+        location: "Arctic Circle",
         category: "Wildlife",
         featured: false,
-        gradient: "from-gray-600 via-yellow-600 to-orange-500",
+        image: "/images/gallery/wildlife/wildlife_001.jpg",
         likes: 5632,
         span: "col-span-1 row-span-1"
     },
     {
         id: 6,
-        title: "Kazakh Nomad",
-        location: "Kazakhstan",
+        title: "Local Hospitality",
+        location: "Tibet",
         category: "Portraits",
         featured: false,
-        gradient: "from-emerald-600 via-teal-500 to-cyan-500",
+        image: "/images/gallery/portraits/portraits_001.jpg",
         likes: 1987,
         span: "col-span-1 row-span-1"
     },
     {
         id: 7,
-        title: "Table Mountain View",
-        location: "South Africa",
+        title: "Glacial Valley",
+        location: "Northern Europe",
         category: "Landscapes",
         featured: true,
-        gradient: "from-blue-500 via-purple-500 to-pink-500",
+        image: "/images/gallery/landscape/landscape_003.jpg",
         likes: 4123,
         span: "col-span-2 row-span-1"
     },
     {
         id: 8,
-        title: "Moroccan Medina",
-        location: "Morocco",
+        title: "Ancient Spirit",
+        location: "Central Asia",
         category: "Culture",
         featured: false,
-        gradient: "from-red-600 via-orange-500 to-yellow-500",
+        image: "/images/gallery/culture/culture_002.jpg",
         likes: 2654,
         span: "col-span-1 row-span-1"
     },
     {
         id: 9,
-        title: "Victoria Falls",
-        location: "Zambia",
+        title: "Reflections",
+        location: "Norway Fjords",
         category: "Landscapes",
         featured: false,
-        gradient: "from-cyan-500 via-blue-500 to-purple-600",
+        image: "/images/gallery/landscape/landscape_004.jpg",
         likes: 3897,
         span: "col-span-1 row-span-1"
     },
     {
         id: 10,
-        title: "Sahara Night Camp",
-        location: "Morocco",
+        title: "Night Camp",
+        location: "Himalayas",
         category: "Adventure",
         featured: false,
-        gradient: "from-indigo-600 via-purple-600 to-pink-500",
+        image: "/images/gallery/adventure/adventure_002.jpg",
         likes: 2156,
         span: "col-span-1 row-span-1"
     },
     {
         id: 11,
-        title: "Lion Encounter",
-        location: "Serengeti",
+        title: "Reindeer Path",
+        location: "Finland",
         category: "Wildlife",
         featured: false,
-        gradient: "from-yellow-500 via-orange-500 to-red-500",
+        image: "/images/gallery/wildlife/wildlife_002.jpg",
         likes: 6234,
         span: "col-span-1 row-span-1"
     },
     {
         id: 12,
-        title: "Alpine Pass",
-        location: "Switzerland",
+        title: "The Rider",
+        location: "Silk Route",
         category: "Adventure",
         featured: false,
-        gradient: "from-slate-600 via-gray-500 to-white",
+        image: "/images/gallery/adventure/adventure_003.jpg",
         likes: 2987,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 13,
+        title: "Sunset Expedition",
+        location: "Central Asia",
+        category: "Adventure",
+        featured: false,
+        image: "/images/gallery/adventure/adventure_005.jpg",
+        likes: 3421,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 14,
+        title: "Local Life",
+        location: "remote village",
+        category: "Portraits",
+        featured: false,
+        image: "/images/gallery/portraits/portraits_002.jpg",
+        likes: 2154,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 15,
+        title: "Ancient Landmark",
+        location: "Silk Route",
+        category: "Culture",
+        featured: false,
+        image: "/images/gallery/culture/culture_003.jpg",
+        likes: 2876,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 16,
+        title: "Mountain Vista",
+        location: "Tibet",
+        category: "Landscapes",
+        featured: false,
+        image: "/images/gallery/landscape/landscape_005.jpg",
+        likes: 4321,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 17,
+        title: "Culture Exchange",
+        location: "remote village",
+        category: "Culture",
+        featured: false,
+        image: "/images/gallery/culture/culture_005.jpg",
+        likes: 3122,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 18,
+        title: "Expedition Moment",
+        location: "Himalayas",
+        category: "Adventure",
+        featured: false,
+        image: "/images/gallery/adventure/adventure_007.jpg",
+        likes: 3876,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 19,
+        title: "Local Portrait",
+        location: "Tibet",
+        category: "Portraits",
+        featured: false,
+        image: "/images/gallery/portraits/portraits_005.jpg",
+        likes: 2432,
+        span: "col-span-1 row-span-1"
+    },
+    {
+        id: 20,
+        title: "Wild Reindeer",
+        location: "Norway",
+        category: "Wildlife",
+        featured: false,
+        image: "/images/gallery/wildlife/wildlife_003.jpg",
+        likes: 5123,
         span: "col-span-1 row-span-1"
     }
 ];
@@ -222,8 +303,16 @@ export default function Gallery() {
                                     item.featured ? item.span : ""
                                 }`}
                             >
-                                {/* Image Gradient Background */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
+                                {/* Image Background */}
+                                <div className="absolute inset-0 bg-brand-midnight">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                    />
+                                </div>
                                 
                                 {/* Overlay */}
                                 <motion.div 
@@ -298,11 +387,15 @@ export default function Gallery() {
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     exit={{ scale: 0.9, opacity: 0 }}
-                                    className={`aspect-video rounded-2xl overflow-hidden bg-gradient-to-br ${selectedItem.gradient}`}
+                                    className="aspect-video rounded-2xl overflow-hidden bg-brand-midnight relative"
                                 >
-                                    <div className="absolute inset-0 flex items-center justify-center text-white/20">
-                                        <Camera className="w-20 h-20" />
-                                    </div>
+                                    <Image
+                                        src={selectedItem.image}
+                                        alt={selectedItem.title}
+                                        fill
+                                        className="object-contain"
+                                        priority
+                                    />
                                 </motion.div>
 
                                 {/* Navigation */}
