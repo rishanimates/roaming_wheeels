@@ -60,8 +60,8 @@ export const metadata: Metadata = {
         images: [
             {
                 url: "/og-image.jpg",
-                width: 2832,
-                height: 3119,
+                width: 1089,
+                height: 1200,
                 alt: "Roaming Wheeels - Yogesh Alekari World Ride Expedition"
             }
         ]
