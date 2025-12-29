@@ -16,9 +16,9 @@ export default function Hero({ onNavigate }: HeroProps) {
         offset: ["start start", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.9], [1, 1]);
 
     const stats = [
         { value: "47+", label: "Countries" },
@@ -103,16 +103,16 @@ export default function Hero({ onNavigate }: HeroProps) {
             {/* Main Content */}
             <motion.div 
                 style={{ y, opacity }}
-                className="relative z-10 text-center px-4 max-w-6xl mx-auto"
+                className="relative z-20 text-center px-4 max-w-6xl mx-auto pt-32 pb-24 md:py-0 flex flex-col justify-start md:justify-center min-h-screen"
             >
                 {/* Top Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="mb-8"
+                    className="mb-6 md:mb-8 mt-10 md:mt-0"
                 >
-                    <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm font-medium text-brand-gold">
+                    <span className="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-brand-midnight/60 backdrop-blur-md border border-white/20 text-xs md:text-sm font-medium text-brand-gold">
                         <span className="w-2 h-2 rounded-full bg-brand-ember animate-pulse" />
                         World Ride Expedition • Leg 3 Active
                     </span>
@@ -123,7 +123,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-brand-sand font-medium tracking-[0.3em] uppercase text-sm mb-6"
+                    className="text-brand-sand font-medium tracking-[0.2em] md:tracking-[0.3em] uppercase text-[10px] md:text-sm mb-4 md:mb-6"
                 >
                     From Remote Village to World Stage
                 </motion.p>
@@ -133,11 +133,11 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.9] tracking-tight"
+                    className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-10 leading-tight md:leading-[0.9] tracking-tight"
                 >
                     <span className="text-white">One Rider.</span>
-                    <br />
-                    <span className="text-white">One Motorcycle.</span>
+                    <br className="hidden sm:block" />
+                    <span className="text-white sm:ml-4"> One Motorcycle.</span>
                     <br />
                     <span className="text-gradient">Infinite Possibilities.</span>
                 </motion.h1>
@@ -147,7 +147,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed"
+                    className="text-sm md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 md:mb-16 leading-relaxed px-4"
                 >
                     Connecting people, learning cultures, sharing Indian values.
                     <span className="text-white font-medium"> Where every road becomes a bridge between hearts.</span>
@@ -158,31 +158,25 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+                    className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-20"
                 >
                     <motion.button
                         whileHover={{ scale: 1.02, boxShadow: "0 0 40px rgba(255, 107, 53, 0.4)" }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => onNavigate?.("journey")}
-                        className="group px-8 py-4 bg-gradient-to-r from-brand-ember to-brand-terracotta text-white rounded-full font-bold text-lg shadow-xl flex items-center gap-3"
+                        className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-ember to-brand-terracotta text-white rounded-full font-bold text-base md:text-lg shadow-xl flex items-center justify-center gap-3"
                     >
                         <MapPin className="w-5 h-5" />
                         Track My Journey
-                        <motion.span
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                            →
-                        </motion.span>
                     </motion.button>
                     
                     <motion.button
                         whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => onNavigate?.("media")}
-                        className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white rounded-full font-bold text-lg flex items-center gap-3 hover:border-brand-ember/50 transition-colors"
+                        className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-bold text-base md:text-lg flex items-center justify-center gap-3 hover:border-brand-ember/50 transition-colors"
                     >
-                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-ember/20 transition-colors">
+                        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-brand-ember/20 transition-colors">
                             <Play className="w-4 h-4 ml-0.5" />
                         </div>
                         Watch Documentary
@@ -194,7 +188,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.8 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mb-16 md:mb-0"
                 >
                     {stats.map((stat, index) => (
                         <motion.div
@@ -203,12 +197,12 @@ export default function Hero({ onNavigate }: HeroProps) {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                             whileHover={{ y: -5 }}
-                            className="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-brand-ember/30 transition-all"
+                            className="text-center p-4 rounded-2xl bg-brand-midnight/40 backdrop-blur-xl border border-white/10 hover:border-brand-ember/50 transition-all"
                         >
-                            <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">
+                            <div className="text-2xl md:text-4xl font-bold text-gradient mb-1">
                                 {stat.value}
                             </div>
-                            <div className="text-xs md:text-sm text-text-secondary uppercase tracking-wider">
+                            <div className="text-[10px] md:text-sm text-text-secondary uppercase tracking-wider">
                                 {stat.label}
                             </div>
                         </motion.div>
@@ -221,7 +215,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, y: [0, 10, 0] }}
                 transition={{ delay: 1.5, duration: 2, repeat: Infinity }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+                className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
             >
                 <span className="text-xs text-text-secondary uppercase tracking-widest">Scroll to explore</span>
                 <div className="w-8 h-12 border-2 border-white/20 rounded-full flex justify-center p-2">
@@ -235,7 +229,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </motion.div>
 
             {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-midnight to-transparent z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-16 md:h-32 bg-gradient-to-t from-brand-midnight to-transparent z-10" />
         </section>
     );
 }
