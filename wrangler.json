@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/wrangler/schemas/config-v2.json",
-  "name": "roaming-wheeels",
+  "name": "roamingwheeels",
   "compatibility_date": "2024-12-26",
   "assets": {
     "directory": "./out"
