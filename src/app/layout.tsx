@@ -105,6 +105,36 @@ export default function RootLayout({
                 {/* Preconnect to Google Fonts */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                
+                {/* Google Consent Mode - MUST be as high as possible */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            window.gtag = gtag;
+
+                            // Default to 'denied' or use saved preference
+                            var savedConsent = null;
+                            try {
+                                savedConsent = localStorage.getItem('cookie-consent');
+                            } catch (e) {}
+                            
+                            var consentState = savedConsent === 'true' ? 'granted' : 'denied';
+
+                            gtag('consent', 'default', {
+                                'ad_storage': consentState,
+                                'analytics_storage': consentState,
+                                'ad_user_data': consentState,
+                                'ad_personalization': consentState,
+                                'ads_data_redaction': consentState === 'denied',
+                                'wait_for_update': 500
+                            });
+
+                            gtag('js', new Date());
+                        `,
+                    }}
+                />
             </head>
             <body
                 className={`
@@ -119,23 +149,6 @@ export default function RootLayout({
                 `}
                 suppressHydrationWarning
             >
-                {/* Google Consent Mode Default State */}
-                <Script id="google-consent-mode" strategy="beforeInteractive">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        
-                        // Default consent to 'denied' as per EU regulations
-                        gtag('consent', 'default', {
-                            'ad_storage': 'denied',
-                            'analytics_storage': 'denied',
-                            'ad_user_data': 'denied',
-                            'ad_personalization': 'denied',
-                            'wait_for_update': 500
-                        });
-                    `}
-                </Script>
-
                 {/* Google Analytics */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-4NWY827NSD"
@@ -143,8 +156,6 @@ export default function RootLayout({
                 />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
                         gtag('config', 'G-4NWY827NSD');
                     `}

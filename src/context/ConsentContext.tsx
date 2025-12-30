@@ -10,11 +10,12 @@ interface ConsentContextType {
 
 const ConsentContext = createContext<ConsentContextType | undefined>(undefined);
 
-// Define gtag type for window
-type GtagFunction = (
-    command: "consent" | "config" | "js" | "event",
-    ...args: unknown[]
-) => void;
+// Type definitions for Google Tag
+type GtagArgs = [string, string, Record<string, string | boolean>];
+interface WindowWithGtag extends Window {
+    gtag?: (...args: GtagArgs) => void;
+    dataLayer?: unknown[];
+}
 
 // Helper to get initial consent from localStorage
 function getInitialConsent(): boolean | null {
@@ -48,14 +49,20 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
 
         // Update Google Consent Mode
         if (typeof window !== "undefined") {
-            const gtag = (window as unknown as { gtag: GtagFunction }).gtag;
-            if (typeof gtag === "function") {
-                gtag("consent", "update", {
-                    ad_storage: value ? "granted" : "denied",
-                    analytics_storage: value ? "granted" : "denied",
-                    ad_user_data: value ? "granted" : "denied",
-                    ad_personalization: value ? "granted" : "denied",
-                });
+            const win = window as unknown as WindowWithGtag;
+            const consentState = value ? "granted" : "denied";
+            const consentConfig = {
+                ad_storage: consentState,
+                analytics_storage: consentState,
+                ad_user_data: consentState,
+                ad_personalization: consentState,
+                ads_data_redaction: !value,
+            };
+
+            if (typeof win.gtag === "function") {
+                win.gtag("consent", "update", consentConfig);
+            } else if (win.dataLayer) {
+                win.dataLayer.push(["consent", "update", consentConfig]);
             }
         }
     }, []);
