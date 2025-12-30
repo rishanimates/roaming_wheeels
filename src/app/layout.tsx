@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Bebas_Neue, Oswald, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { ConsentProvider } from "@/context/ConsentContext";
+import ConsentBanner from "@/components/ConsentBanner";
+import Script from "next/script";
 
 // Font configurations
 const inter = Inter({
@@ -116,9 +119,43 @@ export default function RootLayout({
                 `}
                 suppressHydrationWarning
             >
-                <ThemeProvider>
-                    {children}
-                </ThemeProvider>
+                {/* Google Consent Mode Default State */}
+                <Script id="google-consent-mode" strategy="beforeInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        
+                        // Default consent to 'denied' as per EU regulations
+                        gtag('consent', 'default', {
+                            'ad_storage': 'denied',
+                            'analytics_storage': 'denied',
+                            'ad_user_data': 'denied',
+                            'ad_personalization': 'denied',
+                            'wait_for_update': 500
+                        });
+                    `}
+                </Script>
+
+                {/* Google Analytics */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-4NWY827NSD"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-4NWY827NSD');
+                    `}
+                </Script>
+
+                <ConsentProvider>
+                    <ThemeProvider>
+                        {children}
+                        <ConsentBanner />
+                    </ThemeProvider>
+                </ConsentProvider>
             </body>
         </html>
     );
