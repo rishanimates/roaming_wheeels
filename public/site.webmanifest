@@ -4,9 +4,9 @@
   "description": "Follow Yogesh Alekari's incredible motorcycle journey across 47+ countries. Connecting people, learning cultures, sharing Indian values.",
   "icons": [
     {
-      "src": "/images/logo.jpg",
+      "src": "/logos/RoamingWheeels.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {

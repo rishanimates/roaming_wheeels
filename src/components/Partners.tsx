@@ -2,35 +2,64 @@
 
 import { motion } from "framer-motion";
 import { Handshake, Building2, Globe, Shield, Star, ArrowRight, CheckCircle, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const currentPartners = [
     {
-        name: "Rotary International",
-        type: "Global Partner",
-        logo: "🌐",
-        description: "Supporting the Vasudhaiva Kutumbakam mission across continents",
-        color: "from-blue-500 to-cyan-500"
+        name: "Gulf Oil",
+        type: "Oil Partner",
+        logo: "/logos/gulf-oil.svg",
+        isImage: true,
+        description: "Premium lubricants powering the journey across continents",
+        color: "from-orange-500 to-blue-500"
     },
     {
-        name: "Maharashtra Motor Vehicle Dept",
-        type: "Road Safety Partner",
+        name: "Reise Moto",
+        type: "Equipment Partner",
+        logo: "/logos/reise-moto.png",
+        isImage: true,
+        description: "Premium motorcycle gear and accessories for adventure riders",
+        color: "from-red-500 to-gray-700"
+    },
+    {
+        name: "Road Safety Drive",
+        type: "Safety Partner",
         logo: "🛡️",
-        description: "Official road safety awareness campaign partner",
-        color: "from-orange-500 to-red-500"
-    },
-    {
-        name: "ABVMAS",
-        type: "Training Partner",
-        logo: "⛰️",
-        description: "Mountaineering and adventure training institution",
+        isImage: false,
+        description: "Promoting safe riding practices and awareness",
         color: "from-green-500 to-emerald-500"
     },
     {
-        name: "Royal Enfield",
-        type: "Equipment Partner",
-        logo: "🏍️",
-        description: "The trusted machine for the world expedition",
-        color: "from-yellow-500 to-orange-500"
+        name: "Off-Road Centre UK",
+        type: "Training Partner",
+        logo: "🏁",
+        isImage: false,
+        description: "Professional off-road training and skill development",
+        color: "from-blue-600 to-indigo-600"
+    },
+    {
+        name: "Valley Peak Adventure",
+        type: "Adventure Partner",
+        logo: "⛰️",
+        isImage: false,
+        description: "Himalayan adventure experiences and expeditions",
+        color: "from-purple-500 to-pink-500"
+    },
+    {
+        name: "Moskomoto",
+        type: "Content Partner",
+        logo: "📸",
+        isImage: false,
+        description: "Adventure motorcycling content and community",
+        color: "from-teal-500 to-cyan-500"
+    },
+    {
+        name: "PS Customs International",
+        type: "Customization Partner",
+        logo: "🔧",
+        isImage: false,
+        description: "Custom motorcycle builds and modifications",
+        color: "from-yellow-500 to-orange-600"
     }
 ];
 
@@ -124,8 +153,8 @@ export default function Partners() {
                     viewport={{ once: true }}
                     className="mb-24"
                 >
-                    <h3 className="text-2xl font-bold text-white text-center mb-12">Current Partners</h3>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <h3 className="text-2xl font-bold text-white text-center mb-12">Brand Collaborations</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {currentPartners.map((partner, index) => (
                             <motion.div
                                 key={index}
@@ -136,8 +165,18 @@ export default function Partners() {
                                 whileHover={{ y: -5 }}
                                 className="group p-6 rounded-2xl bg-brand-charcoal/50 border border-white/5 hover:border-white/20 transition-all text-center"
                             >
-                                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mx-auto mb-4 text-4xl group-hover:scale-110 transition-transform`}>
-                                    {partner.logo}
+                                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform overflow-hidden ${partner.isImage ? 'p-3' : 'text-4xl'}`}>
+                                    {partner.isImage ? (
+                                        <Image 
+                                            src={partner.logo}
+                                            alt={`${partner.name} logo`}
+                                            width={80}
+                                            height={80}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    ) : (
+                                        <span>{partner.logo}</span>
+                                    )}
                                 </div>
                                 <h4 className="text-lg font-bold text-white mb-1">{partner.name}</h4>
                                 <span className="inline-block px-3 py-1 rounded-full bg-white/5 text-brand-teal text-xs font-medium mb-3">

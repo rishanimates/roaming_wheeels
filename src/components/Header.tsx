@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { 
     Menu, X, MapPin, User, Target, Newspaper, 
     Youtube, Camera, Handshake, Mail, ChevronRight 
@@ -63,8 +64,15 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
                             onClick={() => handleNavClick("home")}
                         >
                             <div className="relative">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-ember to-brand-gold flex items-center justify-center">
-                                    <span className="text-xl font-bold text-white">RW</span>
+                                <div className="w-12 h-12 rounded-full overflow-hidden border border-white/20 bg-brand-midnight/70 flex items-center justify-center">
+                                    <Image
+                                        src="/logos/RoamingWheeels.png"
+                                        alt="Roaming Wheeels logo"
+                                        width={48}
+                                        height={48}
+                                        className="w-full h-full object-contain"
+                                        priority
+                                    />
                                 </div>
                                 <motion.div 
                                     className="absolute -inset-1 rounded-full bg-gradient-to-br from-brand-ember to-brand-gold opacity-30 blur-sm"

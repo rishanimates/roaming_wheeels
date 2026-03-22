@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Linkedin, ArrowUp, Heart, MapPin, Facebook } from "lucide-react";
+import Image from "next/image";
 
 // Custom X (Twitter) icon component
 const XIcon = ({ size }: { size?: number }) => (
@@ -47,8 +48,14 @@ export default function Footer({ onNavigate }: FooterProps) {
                     {/* Brand */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-ember to-brand-gold flex items-center justify-center">
-                                <span className="text-xl font-bold text-white">RW</span>
+                            <div className="w-12 h-12 rounded-full overflow-hidden border border-white/20 bg-brand-midnight/70 flex items-center justify-center">
+                                <Image
+                                    src="/logos/RoamingWheeels.png"
+                                    alt="Roaming Wheeels logo"
+                                    width={48}
+                                    height={48}
+                                    className="w-full h-full object-contain"
+                                />
                             </div>
                             <div>
                                 <h2 className="text-xl font-bold text-white">Roaming<span className="text-gradient">Wheeels</span></h2>

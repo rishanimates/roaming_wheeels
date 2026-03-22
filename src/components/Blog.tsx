@@ -2,9 +2,29 @@
 
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, MapPin, Heart, MessageCircle, Bookmark, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client";
+import { postsQuery } from "@/sanity/lib/queries";
+import { BlogPost } from "@/sanity/lib/types";
+import Image from "next/image";
 
-const blogPosts = [
+// Type for formatted posts used in UI
+interface FormattedPost {
+    id: number;
+    title: string;
+    excerpt: string;
+    date: string;
+    readTime: string;
+    location: string;
+    category: string;
+    featured: boolean;
+    likes: number;
+    comments: number;
+    image: string;
+    slug: string;
+}
+
+const blogPosts: FormattedPost[] = [
     {
         id: 1,
         title: "The Night I Slept Under Namibian Stars",
@@ -16,7 +36,8 @@ const blogPosts = [
         featured: true,
         likes: 2847,
         comments: 156,
-        image: "gradient-1"
+        image: "gradient-1",
+        slug: "namibian-stars"
     },
     {
         id: 2,
@@ -29,7 +50,8 @@ const blogPosts = [
         featured: true,
         likes: 3421,
         comments: 203,
-        image: "gradient-2"
+        image: "gradient-2",
+        slug: "kazakh-steppe"
     },
     {
         id: 3,
@@ -42,7 +64,8 @@ const blogPosts = [
         featured: false,
         likes: 1956,
         comments: 89,
-        image: "gradient-3"
+        image: "gradient-3",
+        slug: "persian-hospitality"
     },
     {
         id: 4,
@@ -55,7 +78,8 @@ const blogPosts = [
         featured: false,
         likes: 2103,
         comments: 134,
-        image: "gradient-4"
+        image: "gradient-4",
+        slug: "motorcycle-maintenance"
     },
     {
         id: 5,
@@ -68,7 +92,8 @@ const blogPosts = [
         featured: false,
         likes: 4521,
         comments: 267,
-        image: "gradient-5"
+        image: "gradient-5",
+        slug: "is-india-real"
     },
     {
         id: 6,
@@ -81,21 +106,66 @@ const blogPosts = [
         featured: false,
         likes: 1876,
         comments: 98,
-        image: "gradient-6"
+        image: "gradient-6",
+        slug: "atlas-mountains"
     }
 ];
 
 const categories = ["All", "Adventures", "Challenges", "Culture", "Tips", "Reflections"];
 
+// Helper to format Sanity posts to match the UI structure
+function formatSanityPost(post: BlogPost, index: number): FormattedPost {
+    return {
+        id: index + 1,
+        title: post.title,
+        excerpt: post.excerpt,
+        date: new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        readTime: `${post.readTime} min read`,
+        location: post.location,
+        category: post.category,
+        featured: post.featured,
+        likes: Math.floor(Math.random() * 3000) + 1000,
+        comments: Math.floor(Math.random() * 200) + 50,
+        image: post.featuredImage || `gradient-${(index % 6) + 1}`,
+        slug: post.slug.current,
+    };
+}
+
 export default function Blog() {
     const [activeCategory, setActiveCategory] = useState("All");
     const [hoveredPost, setHoveredPost] = useState<number | null>(null);
+    const [posts, setPosts] = useState<FormattedPost[]>(blogPosts);
+
+    // Fetch posts from Sanity
+    useEffect(() => {
+        async function fetchPosts() {
+            try {
+                // Check if Sanity is configured
+                if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+                    console.log('Sanity not configured, using mock data');
+                    return;
+                }
+
+                const sanityPosts: BlogPost[] = await client.fetch(postsQuery);
+                
+                if (sanityPosts && sanityPosts.length > 0) {
+                    const formattedPosts = sanityPosts.map((post, index) => formatSanityPost(post, index));
+                    setPosts(formattedPosts);
+                }
+            } catch (error) {
+                console.error('Error fetching posts from Sanity:', error);
+                console.log('Using mock data as fallback');
+            }
+        }
+
+        fetchPosts();
+    }, []);
 
     const filteredPosts = activeCategory === "All" 
-        ? blogPosts 
-        : blogPosts.filter(post => post.category === activeCategory);
+        ? posts 
+        : posts.filter(post => post.category === activeCategory);
 
-    const featuredPosts = blogPosts.filter(post => post.featured);
+    const featuredPosts = posts.filter(post => post.featured);
     const regularPosts = filteredPosts.filter(post => !post.featured);
 
     const gradientClasses: Record<string, string> = {
@@ -169,8 +239,19 @@ export default function Blog() {
                                 onMouseLeave={() => setHoveredPost(null)}
                                 className="group relative rounded-3xl overflow-hidden cursor-pointer"
                             >
-                                {/* Background Gradient */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${gradientClasses[post.image]} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                                {/* Background Image or Gradient */}
+                                {post.image && post.image.startsWith('http') ? (
+                                    <>
+                                        <Image 
+                                            src={post.image} 
+                                            alt={post.title}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </>
+                                ) : (
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${gradientClasses[post.image]} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                                )}
                                 
                                 {/* Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -249,14 +330,29 @@ export default function Blog() {
                             className="group bg-brand-charcoal/50 rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 transition-all cursor-pointer"
                         >
                             {/* Image Placeholder */}
-                            <div className={`h-48 bg-gradient-to-br ${gradientClasses[post.image]} relative`}>
-                                <div className="absolute inset-0 bg-black/20" />
-                                <div className="absolute top-4 left-4">
+                            <div className="h-48 relative overflow-hidden">
+                                {post.image && post.image.startsWith('http') ? (
+                                    <>
+                                        <Image 
+                                            src={post.image} 
+                                            alt={post.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-black/20" />
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${gradientClasses[post.image]}`} />
+                                        <div className="absolute inset-0 bg-black/20" />
+                                    </>
+                                )}
+                                <div className="absolute top-4 left-4 z-10">
                                     <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
                                         {post.category}
                                     </span>
                                 </div>
-                                <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                                <button className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors">
                                     <Bookmark className="w-4 h-4" />
                                 </button>
                             </div>
