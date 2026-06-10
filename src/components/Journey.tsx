@@ -304,17 +304,6 @@ export default function Journey() {
                         <span className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                         Currently riding through Africa
                     </div>
-                    <div>
-                        <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="px-8 py-4 bg-gradient-to-r from-brand-ember to-brand-gold text-white font-bold rounded-full shadow-lg flex items-center gap-2 mx-auto"
-                        >
-                            <MapPin className="w-5 h-5" />
-                            Track Live Location
-                            <ChevronRight className="w-5 h-5" />
-                        </motion.button>
-                    </div>
                 </motion.div>
             </div>
         </section>

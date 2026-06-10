@@ -55,6 +55,15 @@ const youtubeVideos = [
 const pressArticles = [
     {
         id: 1,
+        videoId: "3-SrPgXsLwg",
+        title: "Indian World Traveller Visit Gambia",
+        publication: "Gambia National TV",
+        date: "2024",
+        type: "TV Interview",
+        logo: "📺"
+    },
+    {
+        id: 2,
         videoId: "7s7VnMycoeA",
         title: "Roaming Wheeels Media Coverage 1",
         publication: "News Feature",
@@ -63,7 +72,7 @@ const pressArticles = [
         logo: "📰"
     },
     {
-        id: 2,
+        id: 3,
         videoId: "1xkLf0AE6l4",
         title: "Roaming Wheeels Media Coverage 2",
         publication: "News Feature",
@@ -72,7 +81,7 @@ const pressArticles = [
         logo: "📰"
     },
     {
-        id: 3,
+        id: 4,
         videoId: "oO8QVPJkUL4",
         title: "Roaming Wheeels Media Coverage 3",
         publication: "News Feature",
@@ -81,7 +90,7 @@ const pressArticles = [
         logo: "📰"
     },
     {
-        id: 4,
+        id: 5,
         videoId: "l_fBLKPDr_M",
         title: "Roaming Wheeels Media Coverage 4",
         publication: "News Feature",
@@ -90,7 +99,7 @@ const pressArticles = [
         logo: "📰"
     },
     {
-        id: 5,
+        id: 6,
         videoId: "EmjGIqb4-oo",
         title: "Roaming Wheeels Media Coverage 5",
         publication: "News Feature",
@@ -216,11 +225,10 @@ export default function Media() {
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                                activeCategory === category
+                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${activeCategory === category
                                     ? "bg-red-500 text-white shadow-lg shadow-red-500/30"
                                     : "bg-white/5 text-text-secondary hover:bg-white/10 hover:text-white"
-                            }`}
+                                }`}
                         >
                             {category}
                         </button>
@@ -238,7 +246,7 @@ export default function Media() {
                         <div className="flex items-center gap-3 mb-8">
                             <Youtube className="w-6 h-6 text-red-500" />
                             <h3 className="text-2xl font-bold text-white">YouTube Channel</h3>
-                            <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm">10.7K Subscribers</span>
+                            <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm">11.1K Subscribers</span>
                         </div>
 
                         {/* Featured Video */}
@@ -252,15 +260,18 @@ export default function Media() {
                         >
                             <div className={`aspect-video bg-gradient-to-br ${thumbnailGradients["doc-1"]} relative`}>
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all" />
-                                
+
                                 {/* Play Button */}
                                 <motion.div
-                                    animate={{ scale: hoveredVideo === 1 ? 1.1 : 1 }}
-                                    className="absolute inset-0 flex items-center justify-center"
+                                    animate={{ scale: hoveredVideo === 1 ? 1.05 : 1 }}
+                                    className="absolute inset-0 flex flex-col items-center justify-center gap-4"
                                 >
-                                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-red-500 transition-all">
+                                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-red-500 transition-all shadow-xl">
                                         <Play className="w-8 h-8 text-white ml-1" />
                                     </div>
+                                    <span className="px-5 py-2 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-semibold tracking-widest uppercase border border-white/15 shadow-2xl">
+                                        Coming Soon
+                                    </span>
                                 </motion.div>
 
                                 {/* Duration Badge */}
@@ -304,15 +315,18 @@ export default function Media() {
                                     {/* Thumbnail */}
                                     <div className={`aspect-video rounded-xl overflow-hidden bg-gradient-to-br ${thumbnailGradients[video.thumbnail]} relative mb-4`}>
                                         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all" />
-                                        
+
                                         {/* Play Icon */}
                                         <motion.div
-                                            animate={{ scale: hoveredVideo === video.id ? 1.1 : 1, opacity: hoveredVideo === video.id ? 1 : 0.8 }}
-                                            className="absolute inset-0 flex items-center justify-center"
+                                            animate={{ scale: hoveredVideo === video.id ? 1.05 : 1, opacity: hoveredVideo === video.id ? 1 : 0.8 }}
+                                            className="absolute inset-0 flex flex-col items-center justify-center gap-3"
                                         >
-                                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-red-500 transition-all">
+                                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-red-500 transition-all shadow-lg">
                                                 <Play className="w-5 h-5 text-white ml-0.5" />
                                             </div>
+                                            <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-widest uppercase border border-white/15 shadow-md">
+                                                Coming Soon
+                                            </span>
                                         </motion.div>
 
                                         {/* Duration */}
@@ -340,7 +354,7 @@ export default function Media() {
                             viewport={{ once: true }}
                             className="mt-8 text-center"
                         >
-                            <a 
+                            <a
                                 href="https://www.youtube.com/@roamingwheeels?sub_confirmation=1"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -482,7 +496,7 @@ export default function Media() {
                                                     className="w-full h-full"
                                                 />
                                             </div>
-                                            
+
                                             {/* Info */}
                                             <div className="flex items-center gap-3">
                                                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
