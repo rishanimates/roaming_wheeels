@@ -44,50 +44,128 @@ const legCoordinates: Record<number, [number, number][]> = {
         [19.07, 72.87]
     ],
     2: [
-        // India to Nepal
-        [28.61, 77.20], [27.17, 78.00], [26.84, 80.94], [26.45, 83.97], [27.71, 85.32],
-        // Nepal to Tibet
-        [28.20, 85.93], [28.65, 87.32], [29.25, 89.64], [29.65, 91.17],
-        // Tibet to Central Asia
-        [31.23, 91.13], [32.05, 92.10], [35.86, 93.08], [38.93, 92.13],
-        [42.82, 93.51], [43.80, 87.58], [43.23, 76.94],
-        // Kyrgyzstan, Uzbekistan
-        [42.87, 74.56], [41.31, 69.27], [39.65, 66.95], [41.29, 69.24],
-        // Kazakhstan to Russia  
-        [43.65, 68.32], [47.09, 69.85], [51.16, 71.44], [53.21, 63.63],
-        [54.98, 73.36], [55.03, 82.92], [55.75, 37.61],
-        // Russia to Baltic
-        [59.93, 30.31], [59.43, 24.75], [56.94, 24.10],
-        // To Finland and Scandinavia
-        [60.16, 24.93], [60.45, 22.26], [59.33, 18.06], [59.91, 10.75],
-        // Down through Europe
-        [57.70, 11.96], [55.67, 12.56], [53.55, 9.99], [52.52, 13.40],
-        [52.37, 4.89], [50.85, 4.35], [48.85, 2.35],
-        // To UK
-        [49.44, 0.10], [51.50, -0.12]
+        // Mumbai-India to Nepal
+        [19.076, 72.877], // Mumbai, India
+        [23.02, 72.57],   // Ahmedabad
+        [26.91, 75.79],   // Jaipur
+        [28.61, 77.20],   // Delhi
+        [27.17, 78.00],   // Agra
+        [26.84, 80.94],   // Lucknow
+        [27.71, 85.32],   // Kathmandu, Nepal
+        // Nepal to Tibet, China
+        [28.20, 85.93],   // Border (Kodari)
+        [29.25, 89.64],   // Shigatse, Tibet
+        [29.65, 91.17],   // Lhasa, Tibet
+        // Tibet, China to Central Asia
+        [32.05, 92.10],   // Nagqu
+        [35.86, 93.08],   // Qinghai
+        [43.80, 87.58],   // Urumqi
+        // Kazakhstan
+        [43.23, 76.94],   // Almaty, Kazakhstan
+        // Kyrgyzstan
+        [42.87, 74.56],   // Bishkek, Kyrgyzstan
+        // Uzbekistan
+        [41.31, 69.27],   // Tashkent, Uzbekistan
+        [39.65, 66.95],   // Samarkand, Uzbekistan
+        // Kazakhstan again
+        [43.65, 68.32],   // Turkistan, Kazakhstan
+        [51.16, 71.44],   // Astana, Kazakhstan
+        // Russia
+        [54.98, 73.36],   // Omsk, Russia
+        [55.75, 37.61],   // Moscow, Russia
+        [59.93, 30.31],   // St. Petersburg, Russia
+        // Estonia
+        [59.43, 24.75],   // Tallinn, Estonia
+        // Latvia
+        [56.94, 24.10],   // Riga, Latvia
+        // Finland
+        [60.17, 24.94],   // Helsinki, Finland
+        [66.50, 25.73],   // Rovaniemi, Finland (Arctic Circle)
+        // Norway (heading north)
+        [69.97, 23.27],   // Alta, Norway
+        // Nordkapp, Norway
+        [71.17, 25.79],   // Nordkapp, Norway
+        // Sweden (heading south)
+        [67.86, 20.23],   // Kiruna, Sweden
+        [65.58, 22.15],   // Luleå, Sweden
+        [59.33, 18.07],   // Stockholm, Sweden
+        // Denmark
+        [55.68, 12.57],   // Copenhagen, Denmark
+        // Germany
+        [53.55, 9.99],    // Hamburg, Germany
+        // Netherlands
+        [52.37, 4.89],    // Amsterdam, Netherlands
+        // Belgium
+        [50.85, 4.35],    // Brussels, Belgium
+        // France
+        [48.85, 2.35],    // Paris, France
+        // UK-London
+        [51.50, -0.12]    // London, UK
     ],
     3: [
-        // London through France to Spain
-        [51.50, -0.12], [49.44, 0.10], [48.85, 2.35], [47.21, 1.55],
-        [45.76, -0.35], [44.83, -0.57], [43.29, -0.37], [42.69, -1.63],
-        [40.41, -3.70], [39.46, -6.37], [37.38, -5.99], [36.72, -4.42],
-        [35.78, -5.81],
-        // To Morocco
-        [35.76, -5.83], [34.03, -6.83], [33.97, -6.84],
-        // Down West Africa coast
+        // UK-London
+        [51.50, -0.12],
+        // France
+        [50.95, 1.85],
+        // Belgium
+        [50.85, 4.35],
+        // Netherlands
+        [52.37, 4.89],
+        // Belgium again
+        [50.41, 4.44],
+        // Paris, France
+        [48.85, 2.35],
+        // Barcelona, Spain
+        [41.38, 2.17],
+        // Morocco
+        [35.78, -5.81], [34.03, -6.83], [33.97, -6.84],
+        // Down West Africa coast (Western Sahara, Mauritania, Senegal, Gambia, Guinea, Sierra Leone, Liberia)
         [31.63, -8.00], [27.15, -13.20], [24.21, -12.88], [21.45, -15.96],
         [18.08, -15.97], [16.27, -16.16], [14.71, -17.46], [13.45, -16.57],
         [11.86, -15.60], [9.64, -13.57], [8.48, -13.23], [6.30, -10.79],
         // Ivory Coast to Nigeria
         [6.82, -5.28], [5.35, -4.00], [5.60, -0.18], [6.17, 1.23], [6.49, 2.62],
         [6.45, 3.39], [9.08, 7.49],
-        // Through Central Africa
+        // Central Africa: Cameroon, Gabon, Congo, ROC, DRC
         [7.38, 9.11], [6.12, 10.27], [3.84, 11.50], [1.65, 10.16],
-        [0.41, 9.46], [-0.80, 11.60], [-4.26, 15.24],
-        // To Angola, Namibia, South Africa
-        [-6.26, 14.24], [-8.83, 13.23], [-12.37, 16.32], [-15.78, 12.99],
+        [0.25, 9.45],   // Libreville to Republic of Congo border
+        [-1.50, 11.50], // ROC
+        [-4.26, 15.24], // Brazzaville (ROC)
+        [-4.32, 15.31], // Kinshasa (DRC)
+        [-5.85, 13.45], // DRC to Angola border (Boma)
+        // Angola & Namibia
+        [-8.83, 13.23], [-12.37, 16.32],
         [-17.86, 15.77], [-22.55, 17.08], [-26.20, 18.06],
-        [-30.55, 22.93], [-33.92, 18.42]
+        // South Africa - Cape of Good Hope
+        [-33.92, 18.42], [-34.36, 18.47],
+        // Lesotho
+        [-29.31, 27.48],
+        // eSwatini
+        [-26.31, 31.14],
+        // Mozambique
+        [-25.96, 32.58],
+        // Madagascar
+        [-22.00, 40.00], [-18.88, 47.51],
+        // return to Mozambique
+        [-19.83, 34.83],
+        // Zimbabwe
+        [-17.82, 31.05],
+        // Zambia
+        [-15.41, 28.28],
+        // Tanzania
+        [-8.90, 33.45],
+        // Burundi
+        [-3.38, 29.36],
+        // Rwanda
+        [-1.94, 30.06],
+        // Uganda
+        [-0.31, 32.58],
+        // Kenya
+        [-1.29, 36.82],
+        // Indian Ocean crossing
+        [3.0, 48.0], [8.0, 56.0], [13.0, 64.0],
+        // Mumbai, India
+        [19.076, 72.877]
     ]
 };
 

@@ -53,10 +53,12 @@ function ProfileImage() {
 
 export default function About() {
     const achievements = [
-        { icon: MapPin, value: "180,000+", label: "KMs Across India", color: "text-brand-ember" },
-        { icon: Globe, value: "47", label: "Countries Explored", color: "text-brand-teal" },
+        { icon: MapPin, value: "505,000+", label: "KMs Across India", color: "text-brand-ember" },
+        { icon: Globe, value: "66+", label: "Countries Explored", color: "text-brand-teal" },
         { icon: Mountain, value: "Certified", label: "Mountaineer", color: "text-brand-gold" },
         { icon: Briefcase, value: "Culture Ambassador", label: "Mission", color: "text-purple-400" },
+        { icon: Briefcase, value: "Expeditions", label: "World Ride Expeditions", color: "text-purple-400" },
+        { icon: Briefcase, value: "Road Safety", label: "Road Safety Awareness Campaigns", color: "text-purple-400" },
     ];
 
     const timeline = [
@@ -75,7 +77,7 @@ export default function About() {
         {
             year: "2013 - Lifelong",
             title: "Exploring India",
-            description: "180,000+ kilometers across India. Every road, every mountain, every story prepared for what was to come.",
+            description: "505,000+ kilometers across India. Every road, every mountain, every story prepared for what was to come.",
             icon: "🏍️"
         },
         {
@@ -95,6 +97,12 @@ export default function About() {
             title: "Euro-Africa Odyssey",
             description: "Currently underway: London → Europe → West Africa. Exploring the diverse landscapes and cultures from European capitals to the heart of West African nations.",
             icon: "🔥"
+        },
+        {
+            year: "Leg 4",
+            title: "Announcing Soon...",
+            description: "Stay tuned for the next chapter of this incredible journey.",
+            icon: "🏍️"
         }
     ];
 
@@ -102,7 +110,7 @@ export default function About() {
         <section className="relative py-32 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-brand-midnight via-brand-charcoal to-brand-midnight" />
-            
+
             {/* Decorative Lines */}
             <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-ember/30 to-transparent" />
             <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-ember/30 to-transparent" />
@@ -178,18 +186,18 @@ export default function About() {
                             </h3>
                             <div className="space-y-4 text-text-secondary leading-relaxed">
                                 <p>
-                                    Growing up in a small village in Maharashtra, the world beyond the horizon 
-                                    seemed like a distant dream. But dreams, when nurtured with determination, 
+                                    Growing up in a small village in Maharashtra, the world beyond the horizon
+                                    seemed like a distant dream. But dreams, when nurtured with determination,
                                     have a way of becoming reality.
                                 </p>
                                 <p>
-                                    Armed with a degree in Architecture from Mumbai University and an &apos;A&apos; Grade 
-                                    mountaineering certification from ABVMAS, Yogesh learned early that the greatest 
+                                    Armed with a degree in Architecture from Mumbai University and an &apos;A&apos; Grade
+                                    mountaineering certification from ABVMAS, Yogesh learned early that the greatest
                                     structures are built not just with materials, but with unwavering will.
                                 </p>
                                 <p>
-                                    Before taking on the world, he conquered India—logging over 180,000 kilometers 
-                                    across every terrain the subcontinent could offer. Each road prepared him for 
+                                    Before taking on the world, he conquered India—logging over 505,000 kilometers
+                                    across every terrain the subcontinent could offer. Each road prepared him for
                                     the next, each challenge sharpened his resolve.
                                 </p>
                             </div>
@@ -219,7 +227,7 @@ export default function About() {
                         {/* Quote */}
                         <div className="p-6 rounded-2xl bg-gradient-to-br from-brand-ember/10 to-transparent border border-brand-ember/20">
                             <p className="text-white italic text-lg leading-relaxed">
-                                &ldquo;The motorcycle is not just a vehicle—it&apos;s a passport to human connection. 
+                                &ldquo;The motorcycle is not just a vehicle—it&apos;s a passport to human connection.
                                 It slows you down enough to truly see the world and fast enough to chase your dreams.&rdquo;
                             </p>
                         </div>
@@ -234,7 +242,7 @@ export default function About() {
                     className="relative"
                 >
                     <h3 className="text-3xl font-bold text-white text-center mb-16">The Journey So Far</h3>
-                    
+
                     {/* Timeline Line */}
                     <div className="absolute left-1/2 top-24 bottom-0 w-px bg-gradient-to-b from-brand-ember via-brand-gold to-brand-teal hidden md:block" />
 
@@ -246,15 +254,13 @@ export default function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                                }`}
+                                className={`relative flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                                    }`}
                             >
                                 {/* Content */}
                                 <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                                    <div className={`p-6 rounded-2xl bg-brand-charcoal/50 border border-white/10 hover:border-white/20 transition-all inline-block max-w-md ${
-                                        index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
-                                    }`}>
+                                    <div className={`p-6 rounded-2xl bg-brand-charcoal/50 border border-white/10 hover:border-white/20 transition-all inline-block max-w-md ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
+                                        }`}>
                                         <span className="text-brand-ember font-bold text-sm">{item.year}</span>
                                         <h4 className="text-xl font-bold text-white mt-1 mb-2">{item.title}</h4>
                                         <p className="text-text-secondary text-sm">{item.description}</p>

@@ -11,7 +11,7 @@ export default function Mission() {
             subtitle: "The World Is One Family",
             description: "Breaking geographical and cultural boundaries to spread the message that humanity transcends borders.",
             color: "from-brand-teal to-brand-sky",
-            stats: "27+ Cultures Connected"
+            stats: "50+ Cultures Connected"
         },
         {
             icon: Shield,
@@ -35,7 +35,7 @@ export default function Mission() {
             subtitle: "Connect, Learn, Share",
             description: "Every journey is about the people I meet. Learning their way of life, understanding their culture, and sharing India's warmth and values.",
             color: "from-purple-500 to-pink-500",
-            stats: "1000+ Connections Made"
+            stats: "20k+ Connections Made"
         }
     ];
 
@@ -62,7 +62,7 @@ export default function Mission() {
             {/* Background */}
             <div className="absolute inset-0 bg-brand-midnight" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,107,53,0.08),transparent_70%)]" />
-            
+
             {/* Decorative elements */}
             <div className="absolute top-20 right-20 w-72 h-72 bg-brand-ember/5 rounded-full blur-[100px]" />
             <div className="absolute bottom-20 left-20 w-96 h-96 bg-brand-gold/5 rounded-full blur-[120px]" />
@@ -83,7 +83,7 @@ export default function Mission() {
                         Riding With <span className="text-gradient">Purpose</span>
                     </h2>
                     <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-                        More than just riding—it&apos;s about connecting with people, understanding their way of living, 
+                        More than just riding—it&apos;s about connecting with people, understanding their way of living,
                         experiencing diverse cultures, and sharing the warmth of Indian values with the world.
                     </p>
                 </motion.div>
@@ -96,12 +96,12 @@ export default function Mission() {
                     className="relative mb-24 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-brand-charcoal to-brand-slate border border-white/10 overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-96 h-96 bg-brand-ember/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                    
+
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
                         <Quote className="w-12 h-12 text-brand-ember/30 mx-auto mb-6" />
                         <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed mb-8 italic">
-                            &ldquo;Every stop is a meetup. Every stranger becomes family. I ride not just to explore—but to 
-                            connect, learn, and share. 
+                            &ldquo;Every stop is a meetup. Every stranger becomes family. I ride not just to explore—but to
+                            connect, learn, and share.
                             <span className="text-gradient font-medium">The road is my classroom, and humanity is my teacher.</span>&rdquo;
                         </blockquote>
                         <div className="flex items-center justify-center gap-4">

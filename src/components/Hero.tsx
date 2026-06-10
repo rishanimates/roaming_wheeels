@@ -21,19 +21,20 @@ export default function Hero({ onNavigate }: HeroProps) {
     const scale = useTransform(scrollYProgress, [0, 0.9], [1, 1]);
 
     const stats = [
-        { value: "47+", label: "Countries" },
-        { value: "55K+", label: "Kilometers" },
-        { value: "250+", label: "Days" },
+        { value: "66+", label: "Countries" },
+        { value: "80K+", label: "International Kilometers" },
+        { value: "585K+", label: "Total Kilometers" },
+        { value: "450+", label: "Days ", subLabel: "on the move" },
         { value: "1M+", label: "Lives Inspired" },
     ];
 
     return (
-        <section 
+        <section
             ref={containerRef}
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* Animated Background */}
-            <motion.div 
+            <motion.div
                 style={{ scale }}
                 className="absolute inset-0 z-0"
             >
@@ -52,9 +53,9 @@ export default function Hero({ onNavigate }: HeroProps) {
                 </div>
                 {/* Gradient Background with animated layers */}
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-midnight/80 via-brand-charcoal/70 to-brand-deep-blue/80" />
-                
+
                 {/* Animated grid pattern */}
-                <div 
+                <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
                         backgroundImage: `
@@ -64,11 +65,11 @@ export default function Hero({ onNavigate }: HeroProps) {
                         backgroundSize: '100px 100px'
                     }}
                 />
-                
+
                 {/* Radial glow */}
                 <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-ember/10 rounded-full blur-[120px]" />
                 <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-[100px]" />
-                
+
                 {/* Road lines animation */}
                 <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] overflow-hidden opacity-20">
                     <motion.div
@@ -80,7 +81,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </motion.div>
 
             {/* Floating Elements */}
-            <motion.div 
+            <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-32 left-[10%] hidden lg:block"
@@ -90,7 +91,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute bottom-40 right-[10%] hidden lg:block"
@@ -101,7 +102,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </motion.div>
 
             {/* Main Content */}
-            <motion.div 
+            <motion.div
                 style={{ y, opacity }}
                 className="relative z-20 text-center px-4 max-w-6xl mx-auto pt-32 pb-24 md:py-0 flex flex-col justify-start md:justify-center min-h-screen"
             >
@@ -169,7 +170,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                         <MapPin className="w-5 h-5" />
                         Track My Journey
                     </motion.button>
-                    
+
                     <motion.button
                         whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
                         whileTap={{ scale: 0.98 }}
@@ -188,7 +189,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.8 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mb-16 md:mb-0"
+                    className="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-3 max-w-4xl mx-auto mb-16 md:mb-0"
                 >
                     {stats.map((stat, index) => (
                         <motion.div
@@ -219,10 +220,10 @@ export default function Hero({ onNavigate }: HeroProps) {
             >
                 <span className="text-xs text-text-secondary uppercase tracking-widest">Scroll to explore</span>
                 <div className="w-8 h-12 border-2 border-white/20 rounded-full flex justify-center p-2">
-                    <motion.div 
+                    <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
-                        className="w-1.5 h-3 bg-brand-ember rounded-full" 
+                        className="w-1.5 h-3 bg-brand-ember rounded-full"
                     />
                 </div>
                 <ChevronDown className="w-5 h-5 text-text-secondary" />

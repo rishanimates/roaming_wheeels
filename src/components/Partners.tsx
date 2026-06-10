@@ -93,7 +93,7 @@ const collaborationTypes = [
 const impactMetrics = [
     { value: "15M+", label: "Social Reach" },
     { value: "10.7K", label: "YouTube Subscribers" },
-    { value: "47+", label: "Countries Covered" },
+    { value: "66+", label: "Countries Covered" },
     { value: "500+", label: "Media Features" }
 ];
 
@@ -167,7 +167,7 @@ export default function Partners() {
                             >
                                 <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform overflow-hidden ${partner.isImage ? 'p-3' : 'text-4xl'}`}>
                                     {partner.isImage ? (
-                                        <Image 
+                                        <Image
                                             src={partner.logo}
                                             alt={`${partner.name} logo`}
                                             width={80}
@@ -248,15 +248,15 @@ export default function Partners() {
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-brand-ember/20 rounded-full blur-[100px]" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-gold/20 rounded-full blur-[100px]" />
-                    
+
                     <div className="relative z-10 text-center max-w-3xl mx-auto">
                         <Sparkles className="w-12 h-12 text-brand-gold mx-auto mb-6" />
                         <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
                             Why Partner With Roaming Wheeels?
                         </h3>
                         <p className="text-xl text-text-secondary mb-8 leading-relaxed">
-                            This isn&apos;t just a motorcycle journey—it&apos;s a movement. A story of determination, 
-                            cultural connection, and proving that dreams have no boundaries. Your brand becomes 
+                            This isn&apos;t just a motorcycle journey—it&apos;s a movement. A story of determination,
+                            cultural connection, and proving that dreams have no boundaries. Your brand becomes
                             part of this inspiring narrative reaching millions worldwide.
                         </p>
                         <div className="grid md:grid-cols-3 gap-6 text-left">
