@@ -64,10 +64,13 @@ export default function Home() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Set section ref
-    const setSectionRef = (id: string) => (el: HTMLDivElement | null) => {
+    // Register section element
+    const registerSection = (el: HTMLDivElement | null) => {
         if (el) {
-            sectionRefs.current.set(id, el);
+            const id = el.id;
+            if (id) {
+                sectionRefs.current.set(id, el);
+            }
         }
     };
 
@@ -96,7 +99,7 @@ export default function Home() {
             {/* Main Content */}
             <main ref={mainRef} className="relative">
                 {/* Hero Section - Special treatment */}
-                <div ref={setSectionRef("home")}>
+                <div ref={registerSection} id="home">
                     <Hero onNavigate={handleSectionChange} />
                 </div>
 
@@ -106,7 +109,7 @@ export default function Home() {
                     return (
                         <div 
                             key={section.id} 
-                            ref={setSectionRef(section.id)}
+                            ref={registerSection}
                             id={section.id}
                         >
                             <AnimatePresence mode="wait">

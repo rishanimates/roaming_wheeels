@@ -195,19 +195,12 @@ export default function RouteMap({ legId }: RouteMapProps) {
         color: string;
     }> | null>(null);
     
-    const [mapKey, setMapKey] = useState(0);
-
     useEffect(() => {
         // Dynamic import on client side
         import("./MapContent").then((mod) => {
             setMapComponent(() => mod.default);
         });
     }, []);
-
-    // Force re-render when legId changes
-    useEffect(() => {
-        setMapKey(prev => prev + 1);
-    }, [legId]);
 
     const coordinates = legCoordinates[legId] || [];
     const config = legMapConfig[legId] || { center: [20, 0] as [number, number], zoom: 2 };
@@ -223,7 +216,7 @@ export default function RouteMap({ legId }: RouteMapProps) {
 
     return (
         <MapComponent 
-            key={`map-${legId}-${mapKey}`}
+            key={`map-${legId}`}
             coordinates={coordinates}
             center={config.center}
             zoom={config.zoom}
