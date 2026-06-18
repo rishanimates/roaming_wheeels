@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image Analyzer Viewer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f1f5f9; padding: 20px; }
+        h1 { text-align: center; color: #38bdf8; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1600px; margin: 0 auto; }
+        .card { background: #1e293b; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); border: 1px solid #334155; display: flex; flex-direction: column; }
+        .img-container { position: relative; width: 100%; aspect-ratio: 4/3; background: #020617; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .filename { font-weight: bold; color: #f8fafc; font-size: 1.1em; margin-bottom: 8px; word-break: break-all; }
+        .meta { font-size: 0.85em; color: #94a3b8; line-height: 1.4; margin-bottom: 8px; }
+        .meta strong { color: #cbd5e1; }
+        .location { background: #0369a1; color: #e0f2fe; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: 600; text-align: center; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <h1>ABR Images Analysis Dashboard</h1>
+    <div class="grid">
+
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_0387.jpg" alt="IMG_0387.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_0387.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:07:26 15:37:26<br>
+                        <strong>Coords:</strong> 71.169839, 25.780786
+                    </div>
+                </div>
+                <div class="location">Nordkapp (North Cape), Norway</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_0468.jpg" alt="IMG_0468.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_0468.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:07:27 01:36:31<br>
+                        <strong>Coords:</strong> 69.896478, 21.619297
+                    </div>
+                </div>
+                <div class="location">Kåfjord, Norway (overlooking Lyngen Fjord) - Twilight</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_0520.jpg" alt="IMG_0520.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_0520.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:07:27 11:23:09<br>
+                        <strong>Coords:</strong> 69.896447, 21.619336
+                    </div>
+                </div>
+                <div class="location">Kåfjord, Norway (overlooking Lyngen Fjord) - Daytime</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_2524.jpg" alt="IMG_2524.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_2524.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2026:03:21 13:27:19<br>
+                        <strong>Coords:</strong> 5.288972, -2.780022
+                    </div>
+                </div>
+                <div class="location">Wassa Amenfi East, Western Region, Ghana</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_2528.jpg" alt="IMG_2528.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_2528.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:15 13:03:44<br>
+                        <strong>Coords:</strong> 28.502769, 87.067542
+                    </div>
+                </div>
+                <div class="location">Mount Everest Base Camp / Solu-Khumbu, Nepal</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_2784.jpg" alt="IMG_2784.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_2784.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:17 12:13:51<br>
+                        <strong>Coords:</strong> 28.853139, 89.726906
+                    </div>
+                </div>
+                <div class="location">Tibet Autonomous Region, China (near Bhutan border)</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_3249.jpg" alt="IMG_3249.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_3249.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:20 13:30:16<br>
+                        <strong>Coords:</strong> 32.882614, 91.918542
+                    </div>
+                </div>
+                <div class="location">Tibetan Plateau, Tibet, China</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_3363.jpg" alt="IMG_3363.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_3363.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:21 11:47:19<br>
+                        <strong>Coords:</strong> 34.679547, 92.916733
+                    </div>
+                </div>
+                <div class="location">Tibetan Plateau, Qinghai, China</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_3656.jpg" alt="IMG_3656.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_3656.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_3755.png" alt="IMG_3755.png">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_3755.png</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_3783.jpg" alt="IMG_3783.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_3783.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4039.jpg" alt="IMG_4039.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4039.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:28 09:34:47<br>
+                        <strong>Coords:</strong> 44.446772, 84.917053
+                    </div>
+                </div>
+                <div class="location">Tian Shan Mountains, Xinjiang, China (Bayanbulak)</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4114.jpg" alt="IMG_4114.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4114.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:28 19:36:42<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Tian Shan Mountains, Xinjiang, China</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4200.jpg" alt="IMG_4200.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4200.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4245.jpg" alt="IMG_4245.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4245.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:05:29 12:32:04<br>
+                        <strong>Coords:</strong> 44.159544, 80.413414
+                    </div>
+                </div>
+                <div class="location">Tian Shan, Xinjiang, China (Ili / Khorgas)</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4258.jpg" alt="IMG_4258.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4258.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_4811.png" alt="IMG_4811.png">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_4811.png</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_5222.jpg" alt="IMG_5222.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_5222.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:06:05 10:39:06<br>
+                        <strong>Coords:</strong> 41.857686, 73.031494
+                    </div>
+                </div>
+                <div class="location">Jalal-Abad Region, Kyrgyzstan</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_5246.jpg" alt="IMG_5246.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_5246.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:06:05 11:57:36<br>
+                        <strong>Coords:</strong> 41.761289, 73.118400
+                    </div>
+                </div>
+                <div class="location">Jalal-Abad Region, Kyrgyzstan</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_5456.jpg" alt="IMG_5456.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_5456.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:06:05 20:35:56<br>
+                        <strong>Coords:</strong> 41.102500, 72.185014
+                    </div>
+                </div>
+                <div class="location">Jalal-Abad Region, Kyrgyzstan</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_5461.jpg" alt="IMG_5461.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_5461.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6599.jpg" alt="IMG_6599.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6599.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6608.jpg" alt="IMG_6608.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6608.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6642.jpeg" alt="IMG_6642.jpeg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6642.jpeg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6714.jpg" alt="IMG_6714.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6714.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:06:24 14:10:46<br>
+                        <strong>Coords:</strong> 41.313478, 69.741044
+                    </div>
+                </div>
+                <div class="location">Parkent District, Tashkent Region, Uzbekistan</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6718.jpeg" alt="IMG_6718.jpeg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6718.jpeg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_6757.jpg" alt="IMG_6757.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_6757.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2025:06:24 14:55:47<br>
+                        <strong>Coords:</strong> 41.312767, 69.740686
+                    </div>
+                </div>
+                <div class="location">Parkent District, Tashkent Region, Uzbekistan</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_8106.jpg" alt="IMG_8106.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_8106.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2026:01:06 14:55:51<br>
+                        <strong>Coords:</strong> 40.647203, -0.997319
+                    </div>
+                </div>
+                <div class="location">Teruel, Aragon, Spain</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/IMG_8773.jpg" alt="IMG_8773.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">IMG_8773.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> 2026:01:19 14:55:51<br>
+                        <strong>Coords:</strong> 36.486289, -5.174814
+                    </div>
+                </div>
+                <div class="location">Cádiz, Andalusia, Spain</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-05-55.jpg" alt="PHOTO-2026-06-18-17-05-55.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-05-55.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-05-58.jpg" alt="PHOTO-2026-06-18-17-05-58.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-05-58.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-17-34.jpg" alt="PHOTO-2026-06-18-17-17-34.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-17-34.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-22-53.jpg" alt="PHOTO-2026-06-18-17-22-53.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-22-53.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-22-58.jpg" alt="PHOTO-2026-06-18-17-22-58.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-22-58.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/PHOTO-2026-06-18-17-22-582.jpg" alt="PHOTO-2026-06-18-17-22-582.jpg">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">PHOTO-2026-06-18-17-22-582.jpg</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/Screenshot 2026-06-16 at 23.00.15.png" alt="Screenshot 2026-06-16 at 23.00.15.png">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">Screenshot 2026-06-16 at 23.00.15.png</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/Screenshot 2026-06-16 at 23.24.13.png" alt="Screenshot 2026-06-16 at 23.24.13.png">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">Screenshot 2026-06-16 at 23.24.13.png</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="img-container">
+                <img src="thumbnails/Screenshot 2026-06-16 at 23.24.30.png" alt="Screenshot 2026-06-16 at 23.24.30.png">
+            </div>
+            <div class="info">
+                <div>
+                    <div class="filename">Screenshot 2026-06-16 at 23.24.30.png</div>
+                    <div class="meta">
+                        <strong>Date:</strong> N/A<br>
+                        <strong>Coords:</strong> N/A
+                    </div>
+                </div>
+                <div class="location">Unidentified Location</div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>
