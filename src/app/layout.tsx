@@ -34,8 +34,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://roamingwheeels.com"),
-    title: "Roaming Wheeels | World Ride Expedition by Yogesh Alekari",
-    description: "Meet Yogesh Alekari - Passionate international motorcycle rider connecting people across 32+ countries. Experience his journey of cultural exchange, meetups, and sharing Indian values with the world. Vasudhaiva Kutumbakam - The World is One Family.",
+    title: {
+        default: "Roaming Wheeels | World Ride Expedition by Yogesh Alekari",
+        template: "%s | Roaming Wheeels",
+    },
+    description: "Meet Yogesh Alekari - Passionate international motorcycle rider connecting people across 70+ countries. Experience his journey of cultural exchange, meetups, and sharing Indian values with the world. Vasudhaiva Kutumbakam - The World is One Family.",
     keywords: [
         "motorcycle expedition",
         "world ride",
@@ -44,27 +47,40 @@ export const metadata: Metadata = {
         "adventure travel",
         "India to London",
         "India to Europe Silk Route",
+        "Euro-Africa Odyssey",
         "motorcycle journey",
         "travel blogger",
         "adventure YouTuber",
         "road safety",
-        "Vasudhaiva Kutumbakam"
+        "Vasudhaiva Kutumbakam",
+        "international motorcycle rider"
     ],
     authors: [{ name: "Yogesh Alekari", url: "https://roamingwheeels.com" }],
-    creator: "Roaming Wheeels",
+    creator: "Yogesh Alekari",
     publisher: "Roaming Wheeels",
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    alternates: {
+        canonical: "/",
+        languages: {
+            "en-US": "/en-US",
+        },
+    },
     openGraph: {
         type: "website",
         locale: "en_US",
         url: "https://roamingwheeels.com",
         siteName: "Roaming Wheeels",
-        title: "Roaming Wheeels | World Ride Expedition",
-        description: "Passionate international motorcycle rider connecting people, cultures & hearts. Sharing Indian values with the world.",
+        title: "Roaming Wheeels | World Ride Expedition by Yogesh Alekari",
+        description: "Passionate international motorcycle rider connecting people, cultures & hearts. Sharing Indian values with the world across 70+ countries.",
         images: [
             {
                 url: "/og-image.jpg",
-                width: 1089,
-                height: 1200,
+                width: 1200,
+                height: 630,
                 alt: "Roaming Wheeels - Yogesh Alekari World Ride Expedition"
             }
         ]
@@ -72,13 +88,14 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Roaming Wheeels | World Ride Expedition",
-        description: "Connecting people, cultures & hearts across borders. Sharing Indian values with the world.",
+        description: "Connecting people, cultures & hearts across borders. Sharing Indian values with the world across 70+ countries.",
         creator: "@yogeshalekari",
         images: ["/og-image.jpg"]
     },
     robots: {
         index: true,
         follow: true,
+        nocache: true,
         googleBot: {
             index: true,
             follow: true,
@@ -92,6 +109,7 @@ export const metadata: Metadata = {
         apple: "/logos/RoamingWheeels.png",
     },
     manifest: "/site.webmanifest",
+    category: "travel",
 };
 
 export default function RootLayout({
@@ -133,6 +151,38 @@ export default function RootLayout({
 
                             gtag('js', new Date());
                         `,
+                    }}
+                />
+                
+                {/* JSON-LD Structured Data for GEO/SEO */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@graph": [
+                                {
+                                    "@type": "Person",
+                                    "@id": "https://roamingwheeels.com/#person",
+                                    "name": "Yogesh Alekari",
+                                    "url": "https://roamingwheeels.com",
+                                    "image": "https://roamingwheeels.com/og-image.jpg",
+                                    "jobTitle": "International Motorcycle Rider & Travel Content Creator",
+                                    "description": "Passionate international motorcycle rider connecting people across 70+ countries.",
+                                    "knowsAbout": ["Motorcycle Expeditions", "Adventure Travel", "Road Safety", "Cultural Exchange", "India to London Ride", "Silk Route"],
+                                    "nationality": "Indian"
+                                },
+                                {
+                                    "@type": "WebSite",
+                                    "@id": "https://roamingwheeels.com/#website",
+                                    "url": "https://roamingwheeels.com",
+                                    "name": "Roaming Wheeels | World Ride Expedition",
+                                    "publisher": {
+                                        "@id": "https://roamingwheeels.com/#person"
+                                    }
+                                }
+                            ]
+                        })
                     }}
                 />
             </head>

@@ -68,7 +68,7 @@ const collaborationTypes = [
         icon: Building2,
         title: "Brand Partnership",
         description: "Associate your brand with an authentic adventure story reaching millions globally",
-        benefits: ["Global exposure across 32+ countries", "Authentic content integration", "Social media amplification", "Event appearances"]
+        benefits: ["Global exposure across 70+ countries", "Authentic content integration", "Social media amplification", "Event appearances"]
     },
     {
         icon: Globe,
@@ -93,7 +93,7 @@ const collaborationTypes = [
 const impactMetrics = [
     { value: "15M+", label: "Social Reach" },
     { value: "11.1K", label: "YouTube Subscribers" },
-    { value: "66+", label: "Countries Covered" },
+    { value: "70+", label: "Countries Covered" },
     { value: "500+", label: "Media Features" }
 ];
 
@@ -269,7 +269,7 @@ export default function Partners() {
                             <div className="p-4 rounded-xl bg-white/5">
                                 <h4 className="text-brand-gold font-bold mb-2">Global Reach</h4>
                                 <p className="text-text-secondary text-sm">
-                                    Engaged audience across 32+ countries, multiple platforms, diverse demographics.
+                                    Engaged audience across 70+ countries, multiple platforms, diverse demographics.
                                 </p>
                             </div>
                             <div className="p-4 rounded-xl bg-white/5">

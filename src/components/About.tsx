@@ -54,7 +54,7 @@ function ProfileImage() {
 export default function About() {
     const achievements = [
         { icon: MapPin, value: "505,000+", label: "KMs Across India", color: "text-brand-ember" },
-        { icon: Globe, value: "66+", label: "Countries Explored", color: "text-brand-teal" },
+        { icon: Globe, value: "70+", label: "Countries Explored", color: "text-brand-teal" },
         { icon: Mountain, value: "Certified", label: "Mountaineer", color: "text-brand-gold" },
         { icon: Briefcase, value: "Culture Ambassador", label: "Mission", color: "text-purple-400" },
         { icon: Briefcase, value: "Expeditions", label: "World Ride Expeditions", color: "text-purple-400" },

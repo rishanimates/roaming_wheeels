@@ -21,7 +21,7 @@ export default function Hero({ onNavigate }: HeroProps) {
     const scale = useTransform(scrollYProgress, [0, 0.9], [1, 1]);
 
     const stats = [
-        { value: "66+", label: "Countries" },
+        { value: "70+", label: "Countries" },
         { value: "80K+", label: "International Kilometers" },
         { value: "585K+", label: "Total Kilometers" },
         { value: "450+", label: "Days ", subLabel: "on the move" },
